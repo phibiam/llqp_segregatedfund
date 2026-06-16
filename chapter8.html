@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter 8 - Group Retirement Plans | PassLLQP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#185FA5;--bl:#E6F1FB;--g:#0F6E56;--r:#993C1D;--t:#0F1117;--m:#6B7280;--bo:#E5E7EB;--bg:#F9FAFB;--w:#fff;--rd:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+nav{background:var(--w);border-bottom:1px solid var(--bo);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}.logo span{color:var(--b)}
+.bk{font-size:13px;color:var(--m);cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+.tabs{display:flex;gap:4px;background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:var(--m);cursor:pointer;border-radius:9px;transition:all .15s}
+.tab.on{background:var(--b);color:#fff}
+.tv{display:none}.tv.show{display:block}
+.th{background:var(--b);color:#fff;border-radius:var(--rd);padding:24px;margin-bottom:16px}
+.th h1{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.th p{font-size:13px;opacity:.85;line-height:1.6}
+.ts{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:22px;margin-bottom:12px}
+.ts h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ts p{font-size:13px;color:var(--m);line-height:1.8;margin-bottom:8px}
+.ts p:last-child{margin-bottom:0}
+.tc{background:var(--bl);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:10px;font-size:13px;color:var(--t);line-height:1.7}
+.tc strong{color:var(--b)}
+.tt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.tt th{background:var(--bl);color:var(--b);padding:8px 10px;text-align:left;font-weight:600}
+.tt td{padding:8px 10px;border-top:1px solid var(--bo);color:var(--m)}
+.tt tr:nth-child(even) td{background:var(--bg)}
+.sqb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:8px}
+.qv{display:none}.qv.show{display:block}
+.qh{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:14px 18px;margin-bottom:14px}
+.qt{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ql{font-size:14px;font-weight:600}
+.sr{display:flex;gap:8px}
+.sb{background:var(--bg);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--m)}
+.sb strong{color:var(--t)}
+.pb{height:4px;background:var(--bo);border-radius:2px}
+.pf{height:4px;background:var(--b);border-radius:2px;transition:width .3s}
+.qc{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:24px;margin-bottom:12px}
+.qn{font-size:11px;font-weight:600;color:var(--b);letter-spacing:.05em}
+.dp{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.dp.beginner{background:#EAF3DE;color:#3B6D11}
+.dp.intermediate{background:#FAEEDA;color:#854F0B}
+.dp.advanced{background:#FAECE7;color:var(--r)}
+.qt2{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.qx{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:18px}
+.ops{display:flex;flex-direction:column;gap:8px}
+.op{border:1px solid var(--bo);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:13px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:border-color .1s,background .1s}
+.op:hover:not(.dis){border-color:var(--b);background:var(--bl)}
+.op.ok{border-color:var(--g);background:#E1F5EE;pointer-events:none}
+.op.no{border-color:var(--r);background:#FAECE7;pointer-events:none}
+.op.dis{pointer-events:none}
+.ol{font-size:11px;font-weight:600;color:var(--b);background:var(--bl);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.op.ok .ol{color:var(--g);background:#9FE1CB}
+.op.no .ol{color:var(--r);background:#F5C4B3}
+.ex{background:var(--bg);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:12px;display:none}
+.ex.show{display:block}
+.el{font-size:11px;font-weight:600;color:var(--b);margin-bottom:5px}
+.ex p{font-size:13px;color:var(--m);line-height:1.6}
+.ft{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pvb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.pvb:disabled{opacity:.3;cursor:default}
+.nxb{background:var(--b);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.nxb:disabled{opacity:.35;cursor:default}
+.res{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center;display:none}
+.res.show{display:block}
+.rp{font-family:'Sora',sans-serif;font-size:52px;font-weight:700;color:var(--b);margin-bottom:8px}
+.rs{font-size:14px;color:var(--m);margin-bottom:24px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.rv{background:var(--bg);border-radius:9px;padding:14px}
+.rv .v{font-size:22px;font-weight:600}.rv .l{font-size:12px;color:var(--m)}
+.ncb{background:var(--b);color:#fff;border:none;padding:11px 24px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-right:8px}
+.rtb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.tb2{background:var(--bl);border:none;color:var(--b);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px;display:block;width:100%}
+.lock{background:var(--w);border:1.5px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center}
+.lock h2{font-size:20px;font-weight:700;margin-bottom:10px}
+.lock p{font-size:14px;color:var(--m);margin-bottom:24px;line-height:1.6}
+.ub{background:var(--b);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+</head>
+<body>
+<nav>
+<div class="logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
+<div class="bk" onclick="location.href='index.html'">Back to Home</div>
+</nav>
+<div class="wrap">
+<div id="lk" class="lock" style="display:none">
+<div style="font-size:48px;margin-bottom:16px">🔒</div>
+<h2>Chapter 8 is locked</h2>
+<p>Unlock all 8 chapters and the full mock exam for a one-time payment of $29.</p>
+<button class="ub" onclick="alert('Payment coming soon!')">Unlock full access - $29</button>
+<br><br>
+<button class="rtb" style="margin-top:12px" onclick="location.href='chapter1.html'">Back to Chapter 1 (free)</button>
+</div>
+<div id="mc">
+<div class="tabs">
+<div class="tab on" id="tT" onclick="sw('t')">Tutorial</div>
+<div class="tab" id="tQ" onclick="sw('q')">Quiz</div>
+</div>
+<div class="tv show" id="tvT">
+<div class="th"><h1>Chapter 8 - Group Retirement Plans</h1><p>Read this lesson first. It covers all key concepts you will be tested on.</p></div>
+
+<div class="ts"><h2><span>🏢</span> Group plan types summary</h2>
+<table class="tt"><tr><th>Plan</th><th>Who contributes</th><th>Locked-in?</th><th>Pension guaranteed?</th></tr>
+<tr><td>DBPP</td><td>Employer and employee</td><td>Yes</td><td>Yes - formula-based</td></tr>
+<tr><td>DCPP</td><td>Employer and employee</td><td>Yes</td><td>No - depends on investment performance</td></tr>
+<tr><td>PRPP</td><td>Optional for both</td><td>Yes</td><td>No</td></tr>
+<tr><td>GRRSP</td><td>Employee and optional employer</td><td>No</td><td>No</td></tr>
+<tr><td>DPSP</td><td>Employer only</td><td>No</td><td>No</td></tr>
+<tr><td>Group TFSA</td><td>Employee and optional employer</td><td>No</td><td>No</td></tr>
+</table></div>
+<div class="ts"><h2><span>⚠️</span> Key group plan concepts</h2>
+<p><strong>Vesting</strong> - When employer contributions become the employee property. Federal minimum: 2 years. Termination accelerates full vesting immediately for all members regardless of time served.</p>
+<p><strong>Pension Adjustment (PA)</strong> - Reduces RRSP contribution room for members of DBPPs, DCPPs and DPSPs to prevent double tax sheltering.</p>
+<p><strong>Locked-in accounts</strong> - When an employee leaves a DBPP or DCPP: savings go to a LIRA (savings phase) which is later converted to a LIF (income phase). Cannot be accessed before retirement age except in very limited circumstances.</p>
+<p><strong>DBPP underfunding</strong> - When plan assets cannot cover promised benefits. Sponsor must make special payments to restore funding within regulatory timelines.</p></div>
+<div class="ts"><h2><span>📋</span> DBPP vs DCPP - the key distinction</h2>
+<p><strong>DBPP formula:</strong> Annual pension equals 2% times years of service times final average salary.</p>
+<p><strong>DCPP:</strong> No pension formula. Retirement income equals whatever the accumulated contributions and investment returns produce.</p>
+<div class="tc"><strong>Who bears investment risk?</strong> DBPP = Employer bears it. DCPP = Employee or member bears it. This is the most fundamental difference and the most commonly tested exam concept in Chapter 8.</div></div>
+<div class="ts"><h2><span>🎓</span> Advisor obligations for group plans</h2>
+<p><strong>Annual review with plan sponsor</strong> - Covers investment performance, participation rates, contribution adequacy, regulatory updates, plan design changes and member education needs.</p>
+<p><strong>Member education</strong> - Advisors have a duty to help members understand their investment options. Low member engagement signals a need for education programs.</p>
+<p><strong>Prompt remittance</strong> - Employer must remit employee contributions promptly after payroll. Late remittance is a fiduciary breach. Advisors must escalate if the issue persists.</p>
+<p><strong>Plan termination</strong> - Must follow pension legislation. All members immediately fully vested. Assets distributed via LIRA transfers or other prescribed options.</p></div>
+<button class="sqb" onclick="sw('q')">Start the quiz</button>
+</div>
+<div class="qv" id="tvQ">
+<div class="qh">
+<div class="qt"><div class="ql">Chapter 8 - Group Retirement Plans</div><div class="sr"><div class="sb">Correct: <strong id="sc">0</strong></div><div class="sb"><strong id="pc">--</strong></div></div></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+<div class="qc" id="qc">
+<div class="qt2"><span class="qn" id="qn">Q 1</span><span class="dp beginner" id="dp">Beginner</span></div>
+<div class="qx" id="qx"></div>
+<div class="ops" id="ops"></div>
+<div class="ex" id="ex"><div class="el">WHY THIS IS CORRECT</div><p id="et"></p></div>
+</div>
+<div class="ft" id="ft">
+<button class="pvb" id="pvb" onclick="prev()" disabled>Prev</button>
+<button class="nxb" id="nxb" disabled onclick="nxt()">Next</button>
+</div>
+<div class="res" id="res">
+<div class="rp" id="rp">0%</div>
+<div class="rs" id="rsub">Chapter 8 complete</div>
+<div class="rg">
+<div class="rv"><div class="v" id="rc">0</div><div class="l">correct</div></div>
+<div class="rv"><div class="v" id="rw">0</div><div class="l">incorrect</div></div>
+<div class="rv"><div class="v">30</div><div class="l">questions</div></div>
+</div>
+<button class="ncb" onclick="location.href='index.html'">Back to home</button>
+<button class="rtb" onclick="restart()">Retry</button>
+<button class="tb2" onclick="sw('t')">Review tutorial</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+const qs=[
+{d:'beginner',q:'What is a group retirement plan?',opts:['A personal retirement savings account held at a bank','A retirement or savings plan sponsored by an employer or association for a group of employees or members','A government pension plan funded through payroll taxes','A private investment club for high-net-worth individuals'],a:1,exp:'A group retirement plan is established by a plan sponsor (typically an employer or association) to provide retirement savings or pension benefits to a group of employees or members. Group plans benefit from pooled administration, potentially lower fees and often include employer contributions.'},
+{d:'beginner',q:'What is the fundamental difference between a DBPP and a DCPP?',opts:['DBPPs are only available to government employees; DCPPs are for private sector','In a DBPP the retirement benefit is predetermined and the employer bears investment risk; in a DCPP the contribution is fixed but retirement benefit depends on investment performance and the member bears investment risk','DBPPs allow members to choose their investments; DCPPs do not','DCPPs are funded entirely by the government; DBPPs are employer-funded'],a:1,exp:'DBPP: the employer promises a specific monthly income at retirement calculated by a formula: years of service times benefit rate times average salary. The employer bears all investment risk. DCPP: contributions are defined but retirement income depends entirely on how the investments perform. Investment risk falls on the employee or member.'},
+{d:'beginner',q:'What is a Deferred Profit Sharing Plan (DPSP)?',opts:['A plan where employees share in company losses','An employer-funded plan where a portion of company profits is allocated to employee accounts on a tax-deferred basis','A government plan that supplements CPP for lower-income workers','A plan where employees defer receiving their salary until retirement'],a:1,exp:'A DPSP allows employers to share company profits with employees through tax-deferred contributions. Only the employer contributes - employees cannot contribute to a DPSP. The funds grow tax-deferred and are taxable when withdrawn. Since contributions depend on company profits there is no guarantee of contributions in any given year.'},
+{d:'beginner',q:'What does vesting mean in the context of a group pension plan?',opts:['The process of selecting investment funds within the plan','The point at which an employee becomes entitled to the employer contributions to their pension - even if they leave the company','The government approval process for new pension plans','The conversion of pension assets to annuity income at retirement'],a:1,exp:'Vesting determines when an employee gains ownership of employer contributions. Before vesting if an employee leaves they may forfeit employer contributions. After vesting they take those contributions with them. Federal and provincial legislation sets minimum vesting periods. In most Canadian jurisdictions vesting occurs within 2 years of plan membership at most.'},
+{d:'beginner',q:'What is a PRPP designed for?',opts:['Government employees who already have defined benefit pensions','Self-employed individuals and employees of small businesses that do not offer workplace pension plans','High-net-worth executives seeking tax shelters','Retired workers converting pension income'],a:1,exp:'The PRPP was created to extend access to low-cost professionally managed pension savings to Canadians - particularly self-employed workers and employees of small businesses who have no workplace pension plan. PRPPs pool contributions from many members to achieve lower fees. Both employers and employees can contribute and self-employed individuals can join directly.'},
+{d:'beginner',q:'What is a Group RRSP (GRRSP) and how does it differ from DCPP assets?',opts:['GRRSPs have higher contribution limits than individual RRSPs','GRRSPs are administered through an employer, contributions are made via payroll deductions and GRRSP assets are NOT locked-in unlike DCPP assets which ARE locked-in','GRRSPs are tax-free like TFSAs','GRRSPs cannot hold segregated funds or annuities'],a:1,exp:'A Group RRSP is a collection of individual RRSPs organized under an employer umbrella. Each employee has their own RRSP, contributions are deducted from payroll and employer matching is a common feature. Importantly GRRSP assets are NOT locked-in - members can withdraw at any time subject to withholding tax. DCPP assets ARE locked-in under pension legislation.'},
+{d:'beginner',q:'How does a pension adjustment (PA) affect an employee RRSP contribution room?',opts:['It increases RRSP room - pension plan members get bonus contribution room','It reduces RRSP room - the PA accounts for the retirement benefit building up in the workplace plan preventing double tax sheltering','It has no effect on RRSP room','It only affects RRSP room if the employee is also self-employed'],a:1,exp:'The pension adjustment prevents double-dipping - saving tax-sheltered dollars in both a workplace pension and an RRSP beyond what the government intends. The PA reflects the value of pension benefit earned in the year and is subtracted from the RRSP contribution room calculated from 18% of earned income.'},
+{d:'beginner',q:'What is a group annuity and how is it typically used in retirement plans?',opts:['A group annuity is a personal annuity purchased by multiple individuals simultaneously','A group annuity is typically used by defined benefit pension plans to fund the promised retirement income for members - the pension plan purchases an annuity from an insurer to provide guaranteed lifetime income','A group annuity is a government program for low-income seniors','A group annuity replaces employer contributions to a pension plan'],a:1,exp:'Group annuities are commonly used by defined benefit pension plans to fund the guaranteed retirement income promised to members. When a member retires the pension plan purchases a group annuity from an insurance company to provide the promised monthly income for life. This transfers the longevity and investment risk from the pension plan to the insurer.'},
+{d:'intermediate',q:'An employee leaves a company with a vested balance in a group DCPP. What are their options?',opts:['They must leave the money in the employer plan permanently','They can transfer the vested balance to a LIRA, transfer to a new employer plan if permitted, or take a cash payment (fully taxable) if the balance is below a certain threshold','They automatically receive a monthly pension immediately','They must purchase an annuity with the funds within 60 days'],a:1,exp:'When an employee leaves a DCPP with vested assets the most common choice is a transfer to a LIRA - a locked-in version of an RRSP that preserves the tax-deferred status. Some plans allow transfer to a new employer plan. A cash payout is generally only available for small amounts below prescribed thresholds and is fully taxable.'},
+{d:'intermediate',q:'A plan sponsor of a DBPP discovers the pension fund is underfunded. What is the sponsor obligation?',opts:['Notify members and reduce their promised benefits immediately','Make special payments to fund the deficit and bring the plan back to full funding - regulators may impose a remediation schedule','Transfer the liability to the government','Terminate the plan and distribute remaining assets pro-rata'],a:1,exp:'In a DBPP the plan sponsor bears all funding risk. If the plan becomes underfunded the sponsor must make additional contributions to eliminate the deficit within regulatory timelines. Pension regulators monitor funding ratios closely. This open-ended funding obligation is one of the main reasons many employers have shifted from DBPP to DCPP.'},
+{d:'intermediate',q:'A plan administrator reports that 60% of DCPP members have never changed their investment selections from the default fund. What should the advisor recommend?',opts:['Nothing - if members are comfortable with the default there is no issue','Automatically move all members to the advisor recommended portfolio without consent','Implement a member education program: investment guides, group seminars, individual consultations for members nearing retirement and review whether the default fund is appropriate','Replace all fund options with a single balanced fund to simplify decisions'],a:2,exp:'Member engagement is a key indicator of plan health and a key advisor responsibility. 60% default adherence suggests members either do not understand their options or have not engaged with retirement planning. The response should be a structured education initiative: clear investment guides, group educational sessions, one-on-one meetings for members within 5-10 years of retirement and a review of whether the default fund appropriately serves the plan demographics.'},
+{d:'intermediate',q:'An employee has been contributing to a DBPP for 15 years. The plan formula is 2% times years of service times final 5-year average salary. Their average salary was $80,000. What is their annual pension?',opts:['$16,000 per year','$24,000 per year','$12,000 per year','$80,000 per year'],a:1,exp:'DBPP pension equals 2% times 15 years times $80,000 equals $24,000 per year or $2,000 per month. This formula-based calculation is the defining feature of a DBPP - the employee knows exactly what they will receive at retirement based on their service and salary history regardless of how the pension fund investments perform.'},
+{d:'intermediate',q:'What is the annual review of a group plan with the plan sponsor designed to cover?',opts:['Only the investment performance of the plan funds','Plan performance, member participation rates, contribution adequacy, regulatory compliance updates, plan design changes, member education needs and whether the plan still meets the sponsor objectives','Only the administrative fees charged by the insurer','The personal financial planning needs of each individual plan member'],a:1,exp:'The annual plan review covers: investment performance across all fund options, participation rates, contribution adequacy, regulatory and legislative changes, potential plan design improvements and member education opportunities. A thorough annual review demonstrates the advisor ongoing value.'},
+{d:'intermediate',q:'A DPSP member retires. What options do they have for their DPSP balance?',opts:['They must leave the funds in the DPSP indefinitely','They can receive the proceeds as a lump sum (taxable), purchase an annuity or transfer funds to an RRSP or RRIF','They must convert to a DCPP at retirement','They automatically begin receiving monthly payments from the DPSP'],a:1,exp:'When a DPSP member retires or leaves the employer with a vested balance their options include: receiving the proceeds as a lump sum (fully taxable as income); purchasing an annuity; or transferring the funds to an RRSP or RRIF to continue tax deferral. The DPSP balance is NOT locked-in unlike registered pension plan assets giving members more flexibility.'},
+{d:'intermediate',q:'What makes a group plan suitable for an employer that cannot commit to mandatory contributions?',opts:['A DBPP - it provides the best member protection','A GRRSP or PRPP with optional employer matching - both allow the employer to offer a plan structure with no mandatory funding commitment','A DCPP with mandatory employer contributions of at least 3%','A DPSP - employers must contribute in all profitable years'],a:1,exp:'For employers who want to offer retirement benefits without mandatory contribution obligations a GRRSP or PRPP is ideal. Both allow payroll deduction convenience, optional employer matching and low administrative burden without legal obligation to contribute. DBPP plans carry open-ended funding liability that would be prohibitive for a small business.'},
+{d:'intermediate',q:'What is the difference between a GRRSP and a DCPP from the perspective of locked-in rules?',opts:['Both GRRSP and DCPP assets are always locked-in until retirement','GRRSP assets are NOT locked-in - members can withdraw at any time subject to normal RRSP withdrawal rules and withholding tax; DCPP assets ARE locked-in and cannot be accessed before retirement age','DCPP assets are not locked-in; GRRSP assets are locked-in','Both have the same locked-in rules under provincial pension legislation'],a:1,exp:'This is a critical distinction: GRRSP assets are NOT governed by pension standards legislation and are NOT locked-in. Members can withdraw from a GRRSP at any time subject to withholding tax just like an individual RRSP. DCPP assets ARE governed by pension legislation and ARE locked-in. This makes the GRRSP much more flexible but also means members can deplete it pre-retirement.'},
+{d:'advanced',q:'A DBPP actuarial valuation shows a going-concern ratio of 92% and a solvency ratio of 85%. Both are below 100%. What do these mean and what is the difference in urgency?',opts:['Both ratios are acceptable - no action needed above 80%','Going-concern (92%) means a modest ongoing funding deficit requiring additional contributions; solvency (85%) means the plan could not fully settle obligations if wound up today - regulators impose stricter timelines for solvency deficits','Both ratios indicate the plan is fully funded','Only the solvency ratio matters; going-concern funding is irrelevant'],a:1,exp:'Pension actuarial valuations assess two scenarios. Going-concern (92%): the plan has a modest deficit on an ongoing basis requiring additional contributions over time. Solvency (85%): if wound up today only 85% of obligations could be settled - regulators impose more urgent and larger special payment requirements typically requiring elimination within 5 years.'},
+{d:'advanced',q:'An advisor is recommending a group plan for an employer with 45 employees of mixed ages - 20 aged 25-35 (growth-focused) and 25 aged 50-62 (income and capital protection focused). What plan design best addresses both groups?',opts:['A single balanced fund for all employees - simplicity is paramount','A DCPP with a diversified fund menu including target-date funds as the default, equity options for younger members and balanced or income options for older members','A DBPP for all employees - guaranteed income suits both groups','A GRRSP with only GIC investment options for safety'],a:1,exp:'A DCPP with a well-designed fund menu is the optimal solution. Target-date funds automatically shift from growth to conservative as the target retirement year approaches serving both demographics without requiring member engagement. Younger members can select equity-heavy options; older members can choose balanced or income funds. The default target-date fund catches non-engaged members and adjusts automatically.'},
+{d:'advanced',q:'A plan administrator reports employee payroll deductions are being deposited to the group RRSP two weeks late consistently. What must the advisor do?',opts:['Nothing - deposit timing is the plan administrator responsibility only','Document the issue, inform the plan sponsor of their legal obligation to remit contributions promptly and if the behavior continues consider whether to escalate to regulators - late remittance of pension contributions is a fiduciary breach','Simply suggest the sponsor try to be faster in the future','Wait until the annual review to raise the issue'],a:1,exp:'Prompt remittance of employee contributions is a legal obligation. Late remittance means members miss market gains on their own money and violates both pension legislation and the sponsor fiduciary duty. The advisor must document the issue, address it directly with the sponsor and if it persists consider regulatory reporting obligations.'},
+{d:'advanced',q:'A company terminates its group DCPP. What obligations does the plan sponsor have to members?',opts:['None - the sponsor can terminate the plan and keep remaining assets','Notify all members, wind up the plan in accordance with pension legislation, fully vest all members immediately regardless of vesting schedule and distribute assets - members typically transfer to a LIRA','Simply stop making contributions and allow the plan to run out of assets','Transfer all assets to the government pension reserve fund'],a:1,exp:'Plan termination is a heavily regulated process. The sponsor must: provide advance notice to members and regulators; immediately vest all members (termination accelerates full vesting regardless of how long members have been enrolled); wind up the plan according to provincial pension legislation; ensure assets are sufficient to cover all entitlements; and distribute assets through prescribed options - typically LIRA transfers for locked-in amounts.'},
+{d:'advanced',q:'A PRPP has 8 retired members who want to establish a Variable Payment Life Annuity (VPLA). Can they proceed?',opts:['Yes - there are no member minimums for a VPLA','No - a VPLA requires a minimum of 10 retired members to be established','Yes - they need provincial approval but no member minimum','No - VPLAs are only available to DCPP members not PRPP members'],a:1,exp:'A Variable Payment Life Annuity (VPLA) requires a minimum of 10 retired members to be established within a PRPP or DCPP. With only 8 members this PRPP cannot establish a VPLA arrangement at this time. The group must wait until at least 2 more members retire to qualify.'},
+{d:'advanced',q:'An employee with a DBPP leaves their employer after 12 years of service before retirement. What can they do with their vested pension?',opts:['They must leave it with the employer and wait until retirement to receive payments','They can leave a deferred pension with the employer; transfer the commuted value to a LIRA; or potentially transfer to a new employer plan if permitted','They can withdraw all the funds immediately as a lump sum without any tax consequences','They can convert it to a GRRSP since pension assets are not locked-in'],a:1,exp:'When a DBPP member leaves before retirement with vested benefits they have several options: leave a deferred pension with the employer (receiving the formula-based pension at the plan normal retirement age); transfer the commuted value (present value of the future pension) to a LIRA; or transfer to a new employer plan if the new plan permits it. DBPP assets are always locked-in.'},
+{d:'intermediate',q:'A company is acquired by a larger corporation. What should the advisor do regarding the group plan?',opts:['No action required - corporate acquisitions do not affect group plans','Contact the plan sponsor immediately to review how the acquisition affects plan sponsorship, member eligibility and whether the acquired plan will be merged, terminated or continued','Wait for the new parent company to contact the advisor','Automatically transfer all member assets to individual RRSPs'],a:1,exp:'Corporate acquisitions are a major trigger for group plan review. The acquiring company may have its own plan creating decisions about merger or termination of the acquired plan. Members vesting status, locked-in rules and benefit entitlements must be carefully reviewed. The advisor must be proactive.'},
+{d:'beginner',q:'What is the primary advantage of a Group TFSA compared to an individual TFSA?',opts:['Group TFSAs have higher annual contribution limits than individual TFSAs','A Group TFSA offers the same tax-free benefits as an individual TFSA with the added convenience of payroll deduction contributions, potential employer matching and access to institutional investment options at lower cost','Group TFSAs do not count toward the individual TFSA contribution room','Group TFSAs are CDIC insured for the full balance'],a:1,exp:'A Group TFSA works exactly like an individual TFSA - contributions are after-tax, growth is tax-free and withdrawals are never taxed. The group structure adds payroll deduction convenience, potential employer matching and typically lower-cost institutional investment options. Contribution room is the same as individual TFSAs.'},
+{d:'intermediate',q:'A group plan sponsor receives a regulatory notice that the pension plan solvency ratio has fallen below 85%. What does this mean and what must the sponsor do?',opts:['Nothing - a solvency ratio of 85% is acceptable and requires no action','The pension fund only has 85% of the assets needed to settle all benefit obligations if the plan were wound up today - the sponsor must make special solvency payments to restore the ratio to 100% within the regulatory timeframe','The plan must be immediately terminated and assets distributed','The sponsor can reduce future benefit accruals to compensate for the deficit'],a:1,exp:'A solvency ratio below 100% means the plan could not fully settle all pension obligations if wound up today. Regulators require sponsors to make special solvency payments to restore the ratio within a prescribed period typically 5 years. Advisors must understand both the going-concern ratio (ongoing plan basis) and solvency ratio (wind-up basis) when working with plan sponsors.'}
+];
+const isAdmin=localStorage.getItem('passllqp_admin')==='true';
+if(!isAdmin){document.getElementById('mc').style.display='none';document.getElementById('lk').style.display='block'}
+function sw(t){
+  document.getElementById('tvT').classList.toggle('show',t==='t');
+  document.getElementById('tvQ').classList.toggle('show',t==='q');
+  document.getElementById('tT').classList.toggle('on',t==='t');
+  document.getElementById('tQ').classList.toggle('on',t==='q');
+  if(t==='q'&&cur===0&&as[0]===null)render();
+}
+let cur=0,as=new Array(qs.length).fill(null),ss=new Array(qs.length).fill(null);
+const sh=[...qs].sort(()=>Math.random()-0.5);
+function render(){
+  const q=sh[cur],tot=sh.length;
+  document.getElementById('qn').textContent='Q '+(cur+1)+' of '+tot;
+  document.getElementById('pf').style.width=((cur/tot)*100)+'%';
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  document.getElementById('et').textContent=q.exp;
+  const ex=document.getElementById('ex');
+  as[cur]!==null?ex.classList.add('show'):ex.classList.remove('show');
+  const c=document.getElementById('ops');c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');d.className='op';
+    if(as[cur]!==null){d.classList.add('dis');if(i===q.a)d.classList.add('ok');if(i===ss[cur]&&ss[cur]!==q.a)d.classList.add('no');}
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(as[cur]===null)d.onclick=()=>sel(d,i===q.a,i,q.a);
+    c.appendChild(d);
+  });
+  const nb=document.getElementById('nxb');
+  nb.disabled=(as[cur]===null);
+  nb.textContent=cur===sh.length-1?'Finish':'Next';
+  document.getElementById('pvb').disabled=(cur===0);
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=a>0?Math.round((s/a)*100)+'%':'--';
+}
+function sel(el,ok,ch,co){
+  document.querySelectorAll('.op').forEach((o,i)=>{o.onclick=null;o.classList.add('dis');if(i===co)o.classList.add('ok');});
+  if(!ok)el.classList.add('no');
+  document.getElementById('ex').classList.add('show');
+  document.getElementById('nxb').disabled=false;
+  as[cur]=ok;ss[cur]=ch;
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=Math.round((s/a)*100)+'%';
+}
+function nxt(){cur++;if(cur>=sh.length){done();return;}render();}
+function prev(){if(cur>0){cur--;render();}}
+function done(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const s=as.filter(v=>v===true).length;
+  const p=Math.round((s/sh.length)*100);
+  document.getElementById('rp').textContent=p+'%';
+  document.getElementById('rsub').textContent=p>=60?'You passed!':'Keep practising.';
+  document.getElementById('rc').textContent=s;
+  document.getElementById('rw').textContent=sh.length-s;
+  document.getElementById('res').classList.add('show');
+}
+function restart(){
+  cur=0;as=new Array(qs.length).fill(null);ss=new Array(qs.length).fill(null);
+  document.getElementById('qc').style.display='block';
+  document.getElementById('ft').style.display='flex';
+  document.getElementById('res').classList.remove('show');
+  render();
+}
+if(isAdmin)render();
+</script>
+</body>
+</html>

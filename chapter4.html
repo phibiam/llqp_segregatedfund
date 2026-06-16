@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter 4 - Investor Profile | PassLLQP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#185FA5;--bl:#E6F1FB;--g:#0F6E56;--r:#993C1D;--t:#0F1117;--m:#6B7280;--bo:#E5E7EB;--bg:#F9FAFB;--w:#fff;--rd:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+nav{background:var(--w);border-bottom:1px solid var(--bo);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}.logo span{color:var(--b)}
+.bk{font-size:13px;color:var(--m);cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+.tabs{display:flex;gap:4px;background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:var(--m);cursor:pointer;border-radius:9px;transition:all .15s}
+.tab.on{background:var(--b);color:#fff}
+.tv{display:none}.tv.show{display:block}
+.th{background:var(--b);color:#fff;border-radius:var(--rd);padding:24px;margin-bottom:16px}
+.th h1{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.th p{font-size:13px;opacity:.85;line-height:1.6}
+.ts{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:22px;margin-bottom:12px}
+.ts h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ts p{font-size:13px;color:var(--m);line-height:1.8;margin-bottom:8px}
+.ts p:last-child{margin-bottom:0}
+.tc{background:var(--bl);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:10px;font-size:13px;color:var(--t);line-height:1.7}
+.tc strong{color:var(--b)}
+.tt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.tt th{background:var(--bl);color:var(--b);padding:8px 10px;text-align:left;font-weight:600}
+.tt td{padding:8px 10px;border-top:1px solid var(--bo);color:var(--m)}
+.tt tr:nth-child(even) td{background:var(--bg)}
+.sqb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:8px}
+.qv{display:none}.qv.show{display:block}
+.qh{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:14px 18px;margin-bottom:14px}
+.qt{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ql{font-size:14px;font-weight:600}
+.sr{display:flex;gap:8px}
+.sb{background:var(--bg);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--m)}
+.sb strong{color:var(--t)}
+.pb{height:4px;background:var(--bo);border-radius:2px}
+.pf{height:4px;background:var(--b);border-radius:2px;transition:width .3s}
+.qc{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:24px;margin-bottom:12px}
+.qn{font-size:11px;font-weight:600;color:var(--b);letter-spacing:.05em}
+.dp{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.dp.beginner{background:#EAF3DE;color:#3B6D11}
+.dp.intermediate{background:#FAEEDA;color:#854F0B}
+.dp.advanced{background:#FAECE7;color:var(--r)}
+.qt2{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.qx{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:18px}
+.ops{display:flex;flex-direction:column;gap:8px}
+.op{border:1px solid var(--bo);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:13px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:border-color .1s,background .1s}
+.op:hover:not(.dis){border-color:var(--b);background:var(--bl)}
+.op.ok{border-color:var(--g);background:#E1F5EE;pointer-events:none}
+.op.no{border-color:var(--r);background:#FAECE7;pointer-events:none}
+.op.dis{pointer-events:none}
+.ol{font-size:11px;font-weight:600;color:var(--b);background:var(--bl);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.op.ok .ol{color:var(--g);background:#9FE1CB}
+.op.no .ol{color:var(--r);background:#F5C4B3}
+.ex{background:var(--bg);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:12px;display:none}
+.ex.show{display:block}
+.el{font-size:11px;font-weight:600;color:var(--b);margin-bottom:5px}
+.ex p{font-size:13px;color:var(--m);line-height:1.6}
+.ft{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pvb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.pvb:disabled{opacity:.3;cursor:default}
+.nxb{background:var(--b);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.nxb:disabled{opacity:.35;cursor:default}
+.res{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center;display:none}
+.res.show{display:block}
+.rp{font-family:'Sora',sans-serif;font-size:52px;font-weight:700;color:var(--b);margin-bottom:8px}
+.rs{font-size:14px;color:var(--m);margin-bottom:24px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.rv{background:var(--bg);border-radius:9px;padding:14px}
+.rv .v{font-size:22px;font-weight:600}.rv .l{font-size:12px;color:var(--m)}
+.ncb{background:var(--b);color:#fff;border:none;padding:11px 24px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-right:8px}
+.rtb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.tb2{background:var(--bl);border:none;color:var(--b);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px;display:block;width:100%}
+.lock{background:var(--w);border:1.5px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center}
+.lock h2{font-size:20px;font-weight:700;margin-bottom:10px}
+.lock p{font-size:14px;color:var(--m);margin-bottom:24px;line-height:1.6}
+.ub{background:var(--b);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+</head>
+<body>
+<nav>
+<div class="logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
+<div class="bk" onclick="location.href='index.html'">Back to Home</div>
+</nav>
+<div class="wrap">
+<div id="lk" class="lock" style="display:none">
+<div style="font-size:48px;margin-bottom:16px">🔒</div>
+<h2>Chapter 4 is locked</h2>
+<p>Unlock all 8 chapters and the full mock exam for a one-time payment of $29.</p>
+<button class="ub" onclick="alert('Payment coming soon!')">Unlock full access - $29</button>
+<br><br>
+<button class="rtb" style="margin-top:12px" onclick="location.href='chapter1.html'">Back to Chapter 1 (free)</button>
+</div>
+<div id="mc">
+<div class="tabs">
+<div class="tab on" id="tT" onclick="sw('t')">Tutorial</div>
+<div class="tab" id="tQ" onclick="sw('q')">Quiz</div>
+</div>
+<div class="tv show" id="tvT">
+<div class="th"><h1>Chapter 4 - Investor Profile</h1><p>Read this lesson first. It covers all key concepts you will be tested on.</p></div>
+
+<div class="ts"><h2><span>👤</span> What is the investor profile?</h2>
+<p>The investor profile is a comprehensive picture of a client financial situation, personal factors, needs and risk tolerance. It is the foundation of every recommendation. Without a complete profile no recommendation can be considered suitable.</p>
+<div class="tc"><strong>Key documents reviewed:</strong> Income tax return (NOA), RRSP and RRIF statements, non-registered investment statements, pension plan statements, bank statements, life insurance policies, mortgage and credit card statements.</div></div>
+<div class="ts"><h2><span>💰</span> Key registered plans</h2>
+<table class="tt"><tr><th>Plan</th><th>Purpose</th><th>Key feature</th></tr>
+<tr><td>RRSP</td><td>Retirement savings</td><td>Tax-deductible contributions; grows tax-deferred; withdrawals fully taxable</td></tr>
+<tr><td>RRIF</td><td>Retirement income</td><td>Minimum annual withdrawals required based on age; all withdrawals taxable</td></tr>
+<tr><td>TFSA</td><td>Tax-free savings</td><td>NOT tax-deductible but all growth AND withdrawals are completely tax-free</td></tr>
+<tr><td>RESP</td><td>Education savings</td><td>CESG grant - government adds 20% on first $2,500 per year per child (max $500 per year)</td></tr>
+<tr><td>RDSP</td><td>Disability savings</td><td>Government grants up to 300%; 10-year holdback rule on withdrawals</td></tr>
+</table></div>
+<div class="ts"><h2><span>🏛️</span> Government retirement income</h2>
+<p><strong>OAS:</strong> Available at 65. Can defer to 70 for 0.6% increase per month - max 36% more. NOT contribution-based. Clawback: 15% of income above approximately $90,000 threshold.</p>
+<p><strong>CPP:</strong> Contribution-based. Standard age 65. Start early at 60: reduced by 0.6% per month (max minus 36%). Defer to 70: increased by 0.7% per month (max plus 42%).</p>
+<p><strong>GIS:</strong> Non-taxable benefit for low-income OAS recipients. RRSP and RRIF withdrawals can REDUCE GIS entitlement. TFSA withdrawals do NOT affect GIS.</p></div>
+<div class="ts"><h2><span>⚖️</span> Risk tolerance vs risk capacity</h2>
+<p><strong>Risk tolerance</strong> - emotional willingness to accept losses. Subjective. Investors consistently OVERESTIMATE their own risk tolerance.</p>
+<p><strong>Risk capacity</strong> - financial ability to absorb losses without affecting lifestyle or goals. Objective.</p>
+<div class="tc"><strong>Key principle:</strong> When in doubt lean toward the more conservative assessment. A client who says medium-high but would panic and sell in a 20% decline is NOT truly medium-high tolerance. Assess both separately.</div></div>
+<div class="ts"><h2><span>🏢</span> Employer pension plans</h2>
+<p><strong>DBPP</strong> - Defined Benefit. Employer promises a specific formula-based pension. Employer bears investment risk. Gold standard for employees.</p>
+<p><strong>DCPP</strong> - Defined Contribution. Contributions are defined but pension depends on investment performance. Employee bears investment risk. Assets are LOCKED-IN.</p>
+<p><strong>GRRSP</strong> - Group RRSP. NOT locked-in. Uses employee personal RRSP contribution room.</p>
+<p><strong>DPSP</strong> - Deferred Profit Sharing Plan. Employer contributions only. NOT locked-in. Creates a pension adjustment reducing RRSP room.</p>
+<div class="tc"><strong>Pension Adjustment (PA):</strong> Reduces RRSP contribution room for members of DBPPs, DCPPs and DPSPs. RRSP room formula: 18% of prior year income minus PA.</div></div>
+<button class="sqb" onclick="sw('q')">Start the quiz</button>
+</div>
+<div class="qv" id="tvQ">
+<div class="qh">
+<div class="qt"><div class="ql">Chapter 4 - Investor Profile</div><div class="sr"><div class="sb">Correct: <strong id="sc">0</strong></div><div class="sb"><strong id="pc">--</strong></div></div></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+<div class="qc" id="qc">
+<div class="qt2"><span class="qn" id="qn">Q 1</span><span class="dp beginner" id="dp">Beginner</span></div>
+<div class="qx" id="qx"></div>
+<div class="ops" id="ops"></div>
+<div class="ex" id="ex"><div class="el">WHY THIS IS CORRECT</div><p id="et"></p></div>
+</div>
+<div class="ft" id="ft">
+<button class="pvb" id="pvb" onclick="prev()" disabled>Prev</button>
+<button class="nxb" id="nxb" disabled onclick="nxt()">Next</button>
+</div>
+<div class="res" id="res">
+<div class="rp" id="rp">0%</div>
+<div class="rs" id="rsub">Chapter 4 complete</div>
+<div class="rg">
+<div class="rv"><div class="v" id="rc">0</div><div class="l">correct</div></div>
+<div class="rv"><div class="v" id="rw">0</div><div class="l">incorrect</div></div>
+<div class="rv"><div class="v">30</div><div class="l">questions</div></div>
+</div>
+<button class="ncb" onclick="location.href='chapter5.html'">Next chapter</button>
+<button class="rtb" onclick="restart()">Retry</button>
+<button class="tb2" onclick="sw('t')">Review tutorial</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+const qs=[
+{d:'beginner',q:'What does KYC stand for and why is it required?',opts:['Keep Your Capital - to protect the client principal','Know Your Client - to gather information needed to make suitable recommendations','Know Your Competition - to compare products across insurers','Keep Your Compliance - to satisfy internal audit requirements'],a:1,exp:'KYC (Know Your Client) is a regulatory requirement obligating advisors to gather comprehensive information about a client before making any recommendation. This includes financial situation, investment knowledge, risk tolerance, time horizon and investment objectives. Without KYC an advisor cannot determine suitability.'},
+{d:'beginner',q:'How is a client net worth calculated?',opts:['Annual income minus annual expenses','Total assets minus total liabilities','Total savings minus total debt payments','Gross income minus income tax paid'],a:1,exp:'Net worth equals Total Assets minus Total Liabilities. Assets include everything of value the client owns. Liabilities are everything owed. Net worth gives a snapshot of the client overall financial health.'},
+{d:'beginner',q:'What is the primary tax benefit of contributing to an RRSP?',opts:['Contributions are taxed at a lower capital gains rate','Contributions are tax-deductible reducing taxable income in the year of contribution','Withdrawals are always completely tax-free','There is no contribution limit'],a:1,exp:'RRSP contributions are deducted from your taxable income in the year you contribute. The money then grows tax-sheltered inside the RRSP. Withdrawals are fully taxable as income. RRSPs are most beneficial for those who contribute at a high rate and withdraw at a lower rate in retirement.'},
+{d:'beginner',q:'What is the defining feature of the TFSA?',opts:['Contributions are tax-deductible like an RRSP','Withdrawals are taxed as ordinary income','Investment growth and withdrawals are completely tax-free','TFSA accounts can only hold cash and GICs'],a:2,exp:'The TFSA defining feature: all growth inside the account is completely tax-free and withdrawals are never taxed. Unlike the RRSP contributions are NOT deductible. TFSA withdrawals also do not affect eligibility for government benefits like OAS and GIS.'},
+{d:'beginner',q:'What is Old Age Security (OAS)?',opts:['A mandatory savings plan that begins at age 60','A government benefit paid to most Canadians age 65 and older funded through general tax revenues','A private pension plan offered by employers to workers over 65','A provincial benefit that varies significantly by province'],a:1,exp:'OAS is a federal government benefit paid monthly to most Canadians who are 65 or older and have lived in Canada for at least 10 years. Unlike CPP, OAS is NOT based on work history. It is funded through general tax revenues and available to all qualifying residents.'},
+{d:'beginner',q:'How is the CPP benefit earned?',opts:['Based on the number of years of Canadian residency','Based on employment contributions made during working years - both employee and employer contribute','Based on total lifetime savings and investments','Based solely on income tax paid throughout working life'],a:1,exp:'CPP is a contributory plan. Both employees and employers contribute a percentage of employment income up to the Year Maximum Pensionable Earnings (YMPE). The more you earn and contribute the higher your CPP retirement benefit. Self-employed individuals pay both the employee and employer share.'},
+{d:'beginner',q:'What is the difference between risk capacity and risk tolerance?',opts:['They mean the same thing','Risk capacity is the financial ability to absorb losses; risk tolerance is the emotional willingness to accept risk','Risk tolerance is measured by the advisor; risk capacity is self-reported','Risk capacity applies only to registered accounts'],a:1,exp:'Risk capacity is objective - determined by the client financial situation including income stability, time horizon, net worth and liquidity needs. Risk tolerance is subjective - the client emotional comfort with seeing their portfolio decline. A good advisor addresses both separately.'},
+{d:'beginner',q:'How is a client RRSP contribution limit determined?',opts:['A flat $18,000 per year for all Canadians','18% of the previous year earned income up to the annual maximum minus any pension adjustment','Based on age - the older the client the higher the limit','Unlimited for clients over age 50'],a:1,exp:'RRSP room equals 18% of the previous year earned income up to the annual RRSP dollar limit. A pension adjustment (PA) from an employer pension plan reduces the room. Unused RRSP room carries forward indefinitely.'},
+{d:'beginner',q:'What government benefit encourages RESP contributions?',opts:['A tax deduction for contributions up to $5,000 per year','The CESG - the government adds 20% on the first $2,500 contributed per year per child up to $500 free government money annually','A monthly government deposit of $500 per child regardless of family income','Free university tuition for children whose parents contribute to an RESP'],a:1,exp:'The CESG matches 20% of the first $2,500 contributed to an RESP per year per child - up to $500 free government money annually to a lifetime maximum of $7,200 per child.'},
+{d:'beginner',q:'What does a client cash flow statement show that their net worth statement does not?',opts:['The total value of all investments','Whether monthly income is sufficient to cover expenses and fund savings goals','The client total debt obligations','The tax owing on investment income'],a:1,exp:'A net worth statement is a snapshot of assets and liabilities at a point in time. A cash flow statement shows money coming in and going out over a period of time. It reveals whether a client has surplus cash to invest, whether they are living beyond their means and where spending can be redirected.'},
+{d:'intermediate',q:'A client turns 71 this year. What must happen to their RRSP?',opts:['Nothing - RRSPs can be held indefinitely','The RRSP must be converted to a RRIF, used to purchase an annuity, or taken as a lump-sum withdrawal by December 31 of that year','The RRSP automatically converts to a TFSA at age 71','The RRSP must be transferred to a spousal plan'],a:1,exp:'By law an RRSP must be matured by December 31 of the year the holder turns 71. The three options are: convert to a RRIF (requires minimum annual withdrawals), purchase an annuity with the proceeds, or cash out entirely and pay full income tax on the lump sum.'},
+{d:'intermediate',q:'What is the rule about minimum withdrawals from a RRIF?',opts:['There are no withdrawal rules - a RRIF is completely flexible','The account holder must withdraw a minimum percentage of the account balance each year based on their age','A flat $10,000 minimum must be withdrawn annually','Withdrawals can only be made twice per year'],a:1,exp:'RRIFs require a minimum annual withdrawal calculated as a percentage of the account January 1 balance. The percentage increases with age starting around 5.28% at age 71 and rising to 20% at age 95+. All amounts withdrawn are fully taxable as income.'},
+{d:'intermediate',q:'How can a spousal RRSP be used as an income-splitting strategy?',opts:['Both spouses share the RRSP and pay equal tax on withdrawals','The higher-income spouse contributes to the lower-income spouse RRSP so withdrawals are taxed in the lower-income spouse hands in retirement','The spousal RRSP converts the higher earner income to capital gains','Spousal RRSP contributions are tax-free for both spouses'],a:1,exp:'A spousal RRSP allows the higher-earning spouse to claim the tax deduction at their higher rate while funds are eventually withdrawn and taxed at the lower-income spouse lower rate. The attribution rules require funds to remain in the spousal RRSP for at least 3 years before withdrawal.'},
+{d:'intermediate',q:'A client net income exceeds the OAS clawback threshold. What happens?',opts:['They lose their CPP benefits as well','Their OAS benefit is gradually reduced - clawed back at 15 cents per dollar of income above the threshold','Their TFSA contribution room is reduced','They are required to repay all prior OAS payments received'],a:1,exp:'The OAS Recovery Tax (clawback) reduces OAS benefits by 15% of net income above an annual threshold (approximately $90,000 in recent years). Once income reaches a second threshold OAS is eliminated entirely. High-income retirees can minimize the clawback through income splitting and TFSA withdrawals.'},
+{d:'intermediate',q:'A client withdraws $15,000 from their TFSA in 2024. When can they re-contribute that amount?',opts:['Immediately - TFSA withdrawals create instant re-contribution room','January 1 2025 - the withdrawal amount is added back to contribution room the following calendar year','Never - TFSA withdrawals permanently reduce contribution room','After 90 days - re-contribution room is restored after a waiting period'],a:1,exp:'TFSA contribution room is restored on January 1 of the year following any withdrawal. A $15,000 withdrawal in 2024 creates $15,000 of new room on January 1 2025. Re-contributing before room is restored results in an over-contribution penalty of 1% per month on the excess.'},
+{d:'intermediate',q:'What is the main advantage of a DBPP for an employee?',opts:['The employee controls how their pension funds are invested','The employee receives a guaranteed income in retirement based on a formula regardless of investment performance','The employer contributes nothing - all funding comes from the employee','The employee can withdraw all funds as a lump sum at any time'],a:1,exp:'A DBPP guarantees a specific monthly income in retirement typically calculated as: years of service times a benefit rate times average salary. The employer bears all investment risk. For employees this provides predictable guaranteed lifetime income.'},
+{d:'intermediate',q:'What is an RDSP and who is it designed for?',opts:['Employers who want to provide disability insurance for staff','Canadians eligible for the Disability Tax Credit to save long-term with government matching grants and bonds','Any Canadian who has been off work for more than 6 months due to illness','Self-employed individuals who lack employer disability coverage'],a:1,exp:'The RDSP is a long-term savings plan for Canadians who qualify for the Disability Tax Credit. The government provides Canada Disability Savings Grants (up to 300% matching for lower-income families) and Canada Disability Savings Bonds. It provides financial security for individuals with disabilities.'},
+{d:'intermediate',q:'A client wants to borrow money to invest in a segregated fund. What is the primary risk the advisor must discuss?',opts:['The interest on the loan is always tax-deductible making this risk-free','If the investment loses value the client still owes the full loan amount potentially losing more than they invested','Leveraging is illegal for insurance products in Canada','The insurance company will cancel the contract if borrowed funds are used'],a:1,exp:'Leveraged investing amplifies both gains and losses. If the client borrows $50,000 and the fund drops 20% they have lost $10,000 but still owe $50,000 plus interest. Advisors must ensure leveraging strategies are suitable only for clients with high risk tolerance, stable income and a long time horizon.'},
+{d:'intermediate',q:'What is the Guaranteed Income Supplement (GIS)?',opts:['A supplement paid to all OAS recipients over age 70','A non-taxable monthly benefit for low-income OAS recipients based on income level','A provincial benefit available to seniors in Alberta only','A supplement for seniors who did not contribute to CPP'],a:1,exp:'The GIS is a non-taxable federal benefit added on top of OAS for low-income seniors. RRSP and RRIF withdrawals increase income and can reduce GIS entitlement making the TFSA especially valuable for low-income seniors.'},
+{d:'intermediate',q:'A 65-year-old client asks why they need to plan for 30 years of retirement income when average life expectancy is in the mid-80s. How should the advisor respond?',opts:['They are right - planning for 20 years is sufficient','Average life expectancy means half the population lives longer - a couple at 65 has a high probability at least one will live past 90 making 30-year planning prudent','Planning for 30 years is excessive','Life expectancy statistics only apply to unhealthy individuals'],a:1,exp:'Averages are misleading for retirement planning. If average life expectancy at 65 is 85 that means half the population lives past 85. For a couple the probability that at least one spouse lives past 90 is very high. Running out of money at 88 is a catastrophic outcome.'},
+{d:'advanced',q:'A client has a pension adjustment (PA) of $14,500 for 2024. Their earned income was $95,000. What is their 2025 RRSP contribution room?',opts:['$17,100 - 18% of $95,000 with no reduction','$2,600 - $17,100 minus the $14,500 PA','$14,500 - equal to the pension adjustment only','$32,000 - PA adds to contribution room'],a:1,exp:'RRSP room equals 18% of prior year earned income minus the pension adjustment. 18% of $95,000 equals $17,100. Minus PA of $14,500 equals $2,600 of new RRSP room.'},
+{d:'advanced',q:'A client is 60 years old, has retired early and has no income this year. They have $400,000 in an RRSP. What is the most tax-efficient strategy?',opts:['Leave the RRSP untouched until age 71 to maximize tax-deferred growth','Withdraw strategically each year up to the top of the lowest tax bracket before CPP and OAS begin to reduce future mandatory RRIF withdrawals','Convert the entire RRSP to a RRIF immediately','Withdraw the full $400,000 immediately to invest in a TFSA'],a:1,exp:'A gap between early retirement and when CPP, OAS and RRIF mandatory withdrawals begin is a golden tax planning window. With no income the client can withdraw RRSP funds at very low tax rates filling up the lowest bracket. This reduces the RRSP balance lowering future mandatory RRIF withdrawals that might push them into higher brackets.'},
+{d:'advanced',q:'Which of the following is NOT a legitimate income splitting strategy for a retired couple?',opts:['Pension income splitting - allocating up to 50% of eligible pension income to a spouse on the tax return','CPP sharing - splitting CPP benefits between spouses','Spousal RRSP contributions made during working years','Transferring all investment assets to the lower-income spouse to avoid attribution rules'],a:3,exp:'The attribution rules prevent simple transfers of assets or income to a lower-income spouse to reduce tax. If the higher-income spouse transfers investments to the lower-income spouse investment income is generally attributed back to the transferor. The other three options are legitimate strategies.'},
+{d:'advanced',q:'A client has a net worth of $2 million but all assets are illiquid. Their liquid investable assets are $50,000. How should the advisor treat their risk profile?',opts:['As high risk - net worth of $2 million supports aggressive investing','As conservative to moderate - suitability must be based on liquid investable assets not total net worth','As moderate - split the difference between liquid and illiquid assets','As aggressive - total net worth is the only relevant metric'],a:1,exp:'Suitability is assessed on what the client can actually invest not their theoretical net worth. With only $50,000 liquid a significant loss would be devastating and irreplaceable without selling illiquid assets. The advisor must treat the $50,000 portfolio conservatively. Paper wealth does not equal investable risk capacity.'},
+{d:'advanced',q:'A client POA for property becomes activated. What can the attorney do regarding the client investments?',opts:['Nothing - a POA has no authority over registered financial accounts','The attorney can manage, buy, sell and make decisions about the client financial assets within the scope defined in the POA document','The attorney can only make withdrawals not investment decisions','The attorney automatically replaces the advisor and manages the portfolio independently'],a:1,exp:'A POA for property grants the named attorney legal authority to manage the grantor financial affairs if they become incapacitated. This includes managing investment accounts, making deposits and withdrawals and directing investment decisions within the scope specified in the document. Advisors must verify the POA document is valid and not restricted.'},
+{d:'advanced',q:'A client consistently overestimates their risk tolerance on questionnaires. How should the advisor handle this?',opts:['Accept the questionnaire result and ignore the meeting comments','Accept the meeting comments and ignore the questionnaire result','Probe deeper in client conversations to understand true risk tolerance, document both sources of information and lean toward the more conservative interpretation','Average the two assessments together'],a:2,exp:'Investors are well known to significantly and consistently overestimate their risk tolerance. The advisor must use professional judgment, probe deeper in client discussions, document the inconsistency and lean toward a more conservative assessment when in doubt.'},
+{d:'advanced',q:'A client RDSP has received grants and bonds over the last 8 years. They want to make a withdrawal. What must they be aware of?',opts:['Withdrawals are completely unrestricted at any time','Grants and bonds received in the last 10 years are subject to a repayment rule - $3 repaid for every $1 withdrawn up to the grants and bonds received in that window','Only grants received in the last 5 years must be repaid','There are no restrictions on RDSP withdrawals once the beneficiary turns 18'],a:1,exp:'The RDSP has a 10-year assistance holdback rule. If a withdrawal is made any grants and bonds received in the preceding 10 years must be repaid to the government proportionally at a rate of $3 repaid for every $1 withdrawn.'},
+{d:'advanced',q:'A client non-registered seg fund generates $4,000 in capital gains allocations this year. They are in the 40% marginal tax bracket. How much tax do they owe?',opts:['$1,600 - 40% of the full $4,000','$800 - 40% of $2,000 which is the 50% capital gains inclusion rate applied to $4,000','$2,000 - 50% of the full $4,000','Nothing - capital gains inside seg funds are tax-deferred'],a:1,exp:'Capital gains have a 50% inclusion rate. Only half of the gain is included in taxable income. Taxable capital gain equals $4,000 times 50% equals $2,000. Tax owing equals $2,000 times 40% equals $800.'},
+{d:'advanced',q:'A client turning 71 splits their $800,000 RRSP between a RRIF and a life annuity. What is the primary benefit?',opts:['It reduces probate fees on the RRSP balance','The RRIF provides flexibility and estate residual value while the life annuity provides guaranteed lifetime income - together they address both the need for control and the need for longevity protection','The split allows the client to avoid minimum RRIF withdrawals on the full amount','It qualifies the client for a higher GIS benefit'],a:1,exp:'The RRIF plus annuity combination is a classic retirement income strategy. The RRIF preserves flexibility and the remaining balance passes to beneficiaries. The life annuity guarantees income for as long as they live no matter how long. Together they provide both a safety net and a backstop for different retirement income needs.'}
+];
+const isAdmin=localStorage.getItem('passllqp_admin')==='true';
+if(!isAdmin){document.getElementById('mc').style.display='none';document.getElementById('lk').style.display='block'}
+function sw(t){
+  document.getElementById('tvT').classList.toggle('show',t==='t');
+  document.getElementById('tvQ').classList.toggle('show',t==='q');
+  document.getElementById('tT').classList.toggle('on',t==='t');
+  document.getElementById('tQ').classList.toggle('on',t==='q');
+  if(t==='q'&&cur===0&&as[0]===null)render();
+}
+let cur=0,as=new Array(qs.length).fill(null),ss=new Array(qs.length).fill(null);
+const sh=[...qs].sort(()=>Math.random()-0.5);
+function render(){
+  const q=sh[cur],tot=sh.length;
+  document.getElementById('qn').textContent='Q '+(cur+1)+' of '+tot;
+  document.getElementById('pf').style.width=((cur/tot)*100)+'%';
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  document.getElementById('et').textContent=q.exp;
+  const ex=document.getElementById('ex');
+  as[cur]!==null?ex.classList.add('show'):ex.classList.remove('show');
+  const c=document.getElementById('ops');c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');d.className='op';
+    if(as[cur]!==null){d.classList.add('dis');if(i===q.a)d.classList.add('ok');if(i===ss[cur]&&ss[cur]!==q.a)d.classList.add('no');}
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(as[cur]===null)d.onclick=()=>sel(d,i===q.a,i,q.a);
+    c.appendChild(d);
+  });
+  const nb=document.getElementById('nxb');
+  nb.disabled=(as[cur]===null);
+  nb.textContent=cur===sh.length-1?'Finish':'Next';
+  document.getElementById('pvb').disabled=(cur===0);
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=a>0?Math.round((s/a)*100)+'%':'--';
+}
+function sel(el,ok,ch,co){
+  document.querySelectorAll('.op').forEach((o,i)=>{o.onclick=null;o.classList.add('dis');if(i===co)o.classList.add('ok');});
+  if(!ok)el.classList.add('no');
+  document.getElementById('ex').classList.add('show');
+  document.getElementById('nxb').disabled=false;
+  as[cur]=ok;ss[cur]=ch;
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=Math.round((s/a)*100)+'%';
+}
+function nxt(){cur++;if(cur>=sh.length){done();return;}render();}
+function prev(){if(cur>0){cur--;render();}}
+function done(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const s=as.filter(v=>v===true).length;
+  const p=Math.round((s/sh.length)*100);
+  document.getElementById('rp').textContent=p+'%';
+  document.getElementById('rsub').textContent=p>=60?'You passed!':'Keep practising.';
+  document.getElementById('rc').textContent=s;
+  document.getElementById('rw').textContent=sh.length-s;
+  document.getElementById('res').classList.add('show');
+}
+function restart(){
+  cur=0;as=new Array(qs.length).fill(null);ss=new Array(qs.length).fill(null);
+  document.getElementById('qc').style.display='block';
+  document.getElementById('ft').style.display='flex';
+  document.getElementById('res').classList.remove('show');
+  render();
+}
+if(isAdmin)render();
+</script>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter 5 - Recommendations | PassLLQP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#185FA5;--bl:#E6F1FB;--g:#0F6E56;--r:#993C1D;--t:#0F1117;--m:#6B7280;--bo:#E5E7EB;--bg:#F9FAFB;--w:#fff;--rd:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+nav{background:var(--w);border-bottom:1px solid var(--bo);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}.logo span{color:var(--b)}
+.bk{font-size:13px;color:var(--m);cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+.tabs{display:flex;gap:4px;background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:var(--m);cursor:pointer;border-radius:9px;transition:all .15s}
+.tab.on{background:var(--b);color:#fff}
+.tv{display:none}.tv.show{display:block}
+.th{background:var(--b);color:#fff;border-radius:var(--rd);padding:24px;margin-bottom:16px}
+.th h1{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.th p{font-size:13px;opacity:.85;line-height:1.6}
+.ts{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:22px;margin-bottom:12px}
+.ts h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ts p{font-size:13px;color:var(--m);line-height:1.8;margin-bottom:8px}
+.ts p:last-child{margin-bottom:0}
+.tc{background:var(--bl);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:10px;font-size:13px;color:var(--t);line-height:1.7}
+.tc strong{color:var(--b)}
+.tt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.tt th{background:var(--bl);color:var(--b);padding:8px 10px;text-align:left;font-weight:600}
+.tt td{padding:8px 10px;border-top:1px solid var(--bo);color:var(--m)}
+.tt tr:nth-child(even) td{background:var(--bg)}
+.sqb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:8px}
+.qv{display:none}.qv.show{display:block}
+.qh{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:14px 18px;margin-bottom:14px}
+.qt{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ql{font-size:14px;font-weight:600}
+.sr{display:flex;gap:8px}
+.sb{background:var(--bg);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--m)}
+.sb strong{color:var(--t)}
+.pb{height:4px;background:var(--bo);border-radius:2px}
+.pf{height:4px;background:var(--b);border-radius:2px;transition:width .3s}
+.qc{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:24px;margin-bottom:12px}
+.qn{font-size:11px;font-weight:600;color:var(--b);letter-spacing:.05em}
+.dp{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.dp.beginner{background:#EAF3DE;color:#3B6D11}
+.dp.intermediate{background:#FAEEDA;color:#854F0B}
+.dp.advanced{background:#FAECE7;color:var(--r)}
+.qt2{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.qx{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:18px}
+.ops{display:flex;flex-direction:column;gap:8px}
+.op{border:1px solid var(--bo);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:13px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:border-color .1s,background .1s}
+.op:hover:not(.dis){border-color:var(--b);background:var(--bl)}
+.op.ok{border-color:var(--g);background:#E1F5EE;pointer-events:none}
+.op.no{border-color:var(--r);background:#FAECE7;pointer-events:none}
+.op.dis{pointer-events:none}
+.ol{font-size:11px;font-weight:600;color:var(--b);background:var(--bl);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.op.ok .ol{color:var(--g);background:#9FE1CB}
+.op.no .ol{color:var(--r);background:#F5C4B3}
+.ex{background:var(--bg);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:12px;display:none}
+.ex.show{display:block}
+.el{font-size:11px;font-weight:600;color:var(--b);margin-bottom:5px}
+.ex p{font-size:13px;color:var(--m);line-height:1.6}
+.ft{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pvb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.pvb:disabled{opacity:.3;cursor:default}
+.nxb{background:var(--b);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.nxb:disabled{opacity:.35;cursor:default}
+.res{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center;display:none}
+.res.show{display:block}
+.rp{font-family:'Sora',sans-serif;font-size:52px;font-weight:700;color:var(--b);margin-bottom:8px}
+.rs{font-size:14px;color:var(--m);margin-bottom:24px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.rv{background:var(--bg);border-radius:9px;padding:14px}
+.rv .v{font-size:22px;font-weight:600}.rv .l{font-size:12px;color:var(--m)}
+.ncb{background:var(--b);color:#fff;border:none;padding:11px 24px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-right:8px}
+.rtb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.tb2{background:var(--bl);border:none;color:var(--b);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px;display:block;width:100%}
+.lock{background:var(--w);border:1.5px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center}
+.lock h2{font-size:20px;font-weight:700;margin-bottom:10px}
+.lock p{font-size:14px;color:var(--m);margin-bottom:24px;line-height:1.6}
+.ub{background:var(--b);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+</head>
+<body>
+<nav>
+<div class="logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
+<div class="bk" onclick="location.href='index.html'">Back to Home</div>
+</nav>
+<div class="wrap">
+<div id="lk" class="lock" style="display:none">
+<div style="font-size:48px;margin-bottom:16px">🔒</div>
+<h2>Chapter 5 is locked</h2>
+<p>Unlock all 8 chapters and the full mock exam for a one-time payment of $29.</p>
+<button class="ub" onclick="alert('Payment coming soon!')">Unlock full access - $29</button>
+<br><br>
+<button class="rtb" style="margin-top:12px" onclick="location.href='chapter1.html'">Back to Chapter 1 (free)</button>
+</div>
+<div id="mc">
+<div class="tabs">
+<div class="tab on" id="tT" onclick="sw('t')">Tutorial</div>
+<div class="tab" id="tQ" onclick="sw('q')">Quiz</div>
+</div>
+<div class="tv show" id="tvT">
+<div class="th"><h1>Chapter 5 - Recommendations</h1><p>Read this lesson first. It covers all key concepts you will be tested on.</p></div>
+
+<div class="ts"><h2><span>✅</span> The recommendation process</h2>
+<p>Every recommendation must follow this sequence: Complete KYC, analyze needs, research suitable products, make and document the recommendation, deliver required disclosures (Fund Facts), then monitor ongoing suitability.</p>
+<div class="tc"><strong>Core principle - Suitability:</strong> The recommended product must genuinely fit THIS client specific situation, goals and risk tolerance. Not just any client. THIS client, right now.</div></div>
+<div class="ts"><h2><span>📋</span> When seg funds vs annuities are appropriate</h2>
+<table class="tt"><tr><th>Client need</th><th>Seg fund</th><th>Annuity</th></tr>
+<tr><td>Capital protection with growth potential</td><td>Yes - maturity guarantee</td><td>Not applicable</td></tr>
+<tr><td>Guaranteed lifetime income</td><td>Yes - GMWB or GLWB</td><td>Yes - life annuity</td></tr>
+<tr><td>Maximum income (no estate concern)</td><td>No</td><td>Yes - life annuity no guarantee period</td></tr>
+<tr><td>Estate planning and probate bypass</td><td>Yes - named beneficiary</td><td>Yes - named beneficiary</td></tr>
+<tr><td>Creditor protection</td><td>Yes - preferred beneficiary</td><td>Yes - preferred beneficiary</td></tr>
+<tr><td>Flexibility to switch investments</td><td>Yes - fund switches</td><td>No - irrevocable once income starts</td></tr>
+</table></div>
+<div class="ts"><h2><span>⚠️</span> Common suitability failure scenarios</h2>
+<p>Recommending a 10-year maturity seg fund to a 78-year-old client.</p>
+<p>Recommending a high-risk equity fund to a conservative retiree needing income.</p>
+<p>Transferring funds between products without documenting that it is in the client best interest - this is called churning.</p>
+<p>Failing to update KYC after major life events such as divorce, retirement or job loss.</p>
+<div class="tc"><strong>Documentation is your protection:</strong> If it is not written down it did not happen. Every recommendation, every client conversation and every KYC update must be documented.</div></div>
+<div class="ts"><h2><span>📄</span> Key disclosure requirements</h2>
+<p><strong>Fund Facts</strong> - Must be delivered BEFORE or AT the point of sale. Not after. Covers performance, costs, risks and guarantees.</p>
+<p><strong>Information folder</strong> - Delivered at or before contract issuance. Contains key contract features and Fund Facts for each selected fund.</p>
+<p><strong>Right of rescission</strong> - 2 business days from receiving the confirmation statement. Must be disclosed to every client.</p>
+<p><strong>Annual review</strong> - Mandatory ongoing service. Covers updated KYC, fund performance, beneficiary designations and whether the product still suits the client changed situation.</p></div>
+<button class="sqb" onclick="sw('q')">Start the quiz</button>
+</div>
+<div class="qv" id="tvQ">
+<div class="qh">
+<div class="qt"><div class="ql">Chapter 5 - Recommendations</div><div class="sr"><div class="sb">Correct: <strong id="sc">0</strong></div><div class="sb"><strong id="pc">--</strong></div></div></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+<div class="qc" id="qc">
+<div class="qt2"><span class="qn" id="qn">Q 1</span><span class="dp beginner" id="dp">Beginner</span></div>
+<div class="qx" id="qx"></div>
+<div class="ops" id="ops"></div>
+<div class="ex" id="ex"><div class="el">WHY THIS IS CORRECT</div><p id="et"></p></div>
+</div>
+<div class="ft" id="ft">
+<button class="pvb" id="pvb" onclick="prev()" disabled>Prev</button>
+<button class="nxb" id="nxb" disabled onclick="nxt()">Next</button>
+</div>
+<div class="res" id="res">
+<div class="rp" id="rp">0%</div>
+<div class="rs" id="rsub">Chapter 5 complete</div>
+<div class="rg">
+<div class="rv"><div class="v" id="rc">0</div><div class="l">correct</div></div>
+<div class="rv"><div class="v" id="rw">0</div><div class="l">incorrect</div></div>
+<div class="rv"><div class="v">30</div><div class="l">questions</div></div>
+</div>
+<button class="ncb" onclick="location.href='chapter6.html'">Next chapter</button>
+<button class="rtb" onclick="restart()">Retry</button>
+<button class="tb2" onclick="sw('t')">Review tutorial</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+const qs=[
+{d:'beginner',q:'Before recommending a segregated fund what must an advisor complete first?',opts:['A product brochure review only','A full KYC assessment covering the client financial situation goals risk tolerance and time horizon','A credit check to assess the client borrowing capacity','A review of competing mutual fund products'],a:1,exp:'No recommendation can be made without completing the KYC process first. The advisor must understand the client financial situation, investment objectives, risk tolerance, time horizon and any special needs before a product is matched to the client. Skipping KYC is a compliance violation regardless of how good the product is.'},
+{d:'beginner',q:'What does suitability mean in the context of recommending a financial product?',opts:['The product must be the cheapest available option','The product must align with the client specific financial situation needs goals and risk tolerance','The product must be the highest performing over the last 5 years','The product must be approved by the client accountant'],a:1,exp:'Suitability means the recommended product genuinely fits the client. Not just any client but THIS client right now. A high-growth equity seg fund might be suitable for a 35-year-old with a 25-year horizon but completely unsuitable for a 72-year-old retiree who needs stable income.'},
+{d:'beginner',q:'When must Fund Facts be delivered to the client in a segregated fund transaction?',opts:['Within 30 days after the purchase is complete','Before or at the point of sale - the client must receive it before committing to the investment','Only if the client specifically requests it','At the annual review meeting'],a:1,exp:'Fund Facts must be delivered before or at the point of sale. This is a regulatory requirement. It gives the client key information (performance, costs, risks, guarantees) before they commit their money. Delivering Fund Facts after the transaction defeats its purpose.'},
+{d:'beginner',q:'After making a product recommendation to a client what should the advisor always do?',opts:['Nothing - verbal recommendations are sufficient','Document the recommendation and the rationale in writing including how it aligns with the client KYC profile','Send an email to the insurance company only','Have the client sign a waiver stating they accept all responsibility'],a:1,exp:'Documentation is not optional. It is a regulatory requirement. Advisors must record the recommendation made, the KYC information it was based on and why the product is suitable for this specific client. If a client later complains or regulators investigate documentation is the advisor primary protection.'},
+{d:'beginner',q:'Two seg funds have identical mandates and similar performance. Fund A has a 2.1% MER and Fund B has a 2.9% MER. All else being equal which should the advisor recommend?',opts:['Fund B - higher MER means better management','Fund A - the lower MER means more of the return stays with the client','Either - MER has no impact on net returns','Fund B - higher fees signal higher guarantees'],a:1,exp:'MER is a direct drag on investor returns. If both funds perform identically before fees the client in Fund A ends up with 0.8% more per year. Compounded over 20 years that difference is substantial. A higher MER must be justified by materially better performance, stronger guarantees or other tangible benefits.'},
+{d:'intermediate',q:'A conservative 66-year-old client needs monthly income, wants capital protection and has a 10-year investment horizon. Which seg fund type is most appropriate?',opts:['An emerging markets equity fund','An income or balanced fund with a 100% maturity guarantee','A specialty tech fund with high growth potential','A money market fund only'],a:1,exp:'An income or balanced seg fund provides steady income while the equity component offers modest growth to combat inflation. The 100% maturity guarantee ensures capital is protected at the 10-year maturity. Emerging markets and tech specialty funds are far too volatile for this client.'},
+{d:'intermediate',q:'A client insists on an aggressive equity fund that the advisor has assessed as unsuitable for them. What should the advisor do?',opts:['Recommend the aggressive fund - clients have the right to make their own investment decisions','Refuse to deal with the client entirely','Explain why the aggressive fund is unsuitable given the client profile, document the assessment and if the client still insists follow the firm escalation procedures and document the client contrary instruction','Recommend a compromise moderate fund without explanation'],a:2,exp:'The advisor must assess suitability and cannot simply execute a client request that contradicts their documented profile. The advisor must explain the suitability concern, document the assessment and if the client overrides, follow firm escalation procedures. The advisor remains responsible for their recommendation.'},
+{d:'intermediate',q:'Why might an advisor recommend laddering annuity purchases over time rather than buying all at once?',opts:['To generate more commission through multiple transactions','To reduce exposure to interest rate risk - purchasing at different times averages out the rate environment','To comply with a regulatory requirement limiting single annuity purchases','To give the insurance company time to underwrite each purchase'],a:1,exp:'Annuity rates are locked in at purchase and heavily influenced by prevailing interest rates. If a client converts all their savings to an annuity when rates are low they are locked into low income forever. By laddering purchases over several years the client averages across different rate environments.'},
+{d:'intermediate',q:'An advisor recommends a seg fund with a 10-year maturity to a 78-year-old client. What is the primary concern?',opts:['There are no concerns - seg funds are suitable for all ages','The client will be 88 at maturity - the guarantee may never benefit them, the contract restricts liquidity for a decade and the MER cost may outweigh the value of the guarantee','The 10-year maturity is too short for this client','The client should have chosen a 20-year contract instead'],a:1,exp:'This is a classic suitability failure scenario. At 78 a 10-year maturity means the guarantee triggers at 88 if the client survives. Meanwhile they pay a premium MER for insurance they may never use. Liquidity is restricted for a decade during years when health care costs often peak.'},
+{d:'advanced',q:'A 70-year-old client with $500,000 needs $2,500 per month income, has no estate planning concerns and is in excellent health. A life annuity offers $2,600 per month and a seg fund GMWB offers $2,100 per month with estate residual value. Which is more appropriate?',opts:['The seg fund GMWB - it always provides more flexibility','The annuity - it exceeds the income need, the client has no estate concern and excellent health makes lifetime income more valuable','The GIC ladder - both products are too complex','They are equally suitable'],a:1,exp:'Given the client stated needs and profile the annuity wins. It exceeds the income requirement, the client explicitly has no estate concern eliminating the main advantage of the GMWB residual value, and excellent health makes longevity insurance highly beneficial. The $500 per month income difference over a 25-year retirement is enormous.'},
+{d:'advanced',q:'An advisor discovers a fund the client holds is being merged into a different fund with a higher MER. What must the advisor do?',opts:['Nothing - fund mergers are the insurer responsibility to communicate','Notify the client proactively, explain the change and its implications, assess whether the replacement fund still suits the client profile and document discussions and any resulting recommendations','Wait for the client to ask about the change','Simply update the client file with a note but take no other action'],a:1,exp:'When an insurer makes material changes to a product advisors have an obligation to proactively communicate with affected clients. The replacement fund may have a different risk profile or higher cost. Advisors must assess whether the new fund suits each client individual profile, discuss alternatives if needed and document all interactions.'},
+{d:'advanced',q:'An advisor is choosing between two nearly identical seg funds - one paying 1% trailing commission and one paying 0.5%. The client profile suits both equally. What is the ethical obligation?',opts:['Choose the higher-commission fund - advisors deserve fair compensation','Choose the lower-commission fund as a sign of good faith','Document that both funds are equally suitable, disclose the commission difference to the client and recommend based on the client best interest not compensation','Recommend both funds and split the investment equally'],a:2,exp:'When two products are equally suitable compensation must not be the deciding factor. Advisors must disclose conflicts of interest including commission differences and make recommendations independent of personal financial gain.'},
+{d:'advanced',q:'After an annual review an advisor discovers a client seg fund has consistently underperformed its benchmark over 5 years and a similar fund from the same insurer has outperformed over the same period. What must the advisor do?',opts:['Do nothing - past performance is not indicative of future results and no action is required','Proactively discuss the performance differential with the client, present the alternative fund Facts, assess whether a switch is in the client best interest and document the discussion and recommendation','Automatically switch the client to the better-performing fund without consultation','Only mention the performance differential if the client asks about it'],a:1,exp:'Ongoing product monitoring is an advisor obligation. Discovering consistent significant underperformance relative to a comparable alternative requires the advisor to bring this to the client attention proactively. This includes presenting Fund Facts for the alternative fund, assessing suitability of a switch, considering tax implications and documenting the full discussion and the client decision.'},
+{d:'advanced',q:'A client KYC review reveals they consistently overestimate their risk tolerance on questionnaires based on comments they make during meetings. How should the advisor handle this?',opts:['Accept the questionnaire result and ignore the meeting comments','Accept the meeting comments and ignore the questionnaire result','Probe deeper in client conversations to understand true risk tolerance, document both sources of information and use professional judgment leaning toward the more conservative interpretation','Average the two assessments together'],a:2,exp:'Investors are well known to significantly and consistently overestimate their risk tolerance. The advisor must use professional judgment, probe deeper, document the inconsistency and lean toward a more conservative assessment when in doubt. A client who says medium-high but would panic and sell in a 20% decline is not truly medium-high tolerance.'},
+{d:'advanced',q:'A client asks the advisor to recommend the product that will make them the most money. What must the advisor do?',opts:['Simply recommend the fund with the highest historical return','Explain that the goal is a suitable recommendation aligned with the client specific risk tolerance, time horizon, income needs and financial situation - and that higher potential returns always come with higher risk','Tell the client that advisors cannot recommend any product that aims to maximize returns','Decline to make any recommendation and suggest the client see a different advisor'],a:1,exp:'An advisor duty is suitability not maximum returns. The advisor must educate the client that risk and return are directly related meaning the highest potential returns come with the highest potential for losses. The advisor must align the recommendation with the client complete profile not with a desire for maximum performance.'},
+{d:'beginner',q:'A client life circumstances change significantly - they divorce, lose their job and have a new dependent. What is the advisor obligation?',opts:['No obligation - recommendations are only made at point of sale','Review all existing product recommendations to determine whether they remain suitable, update KYC and make new recommendations if necessary','Contact the insurance company only and let them update the file','Wait for the annual review regardless of how significant the changes are'],a:1,exp:'KYC is an ongoing obligation. Material life changes (divorce, job loss, new dependents, health changes, inheritance) can fundamentally alter whether existing products remain suitable. An advisor who becomes aware of significant changes must proactively review the client file, update the KYC and assess ongoing suitability.'},
+{d:'intermediate',q:'A client is deciding between a seg fund (2.8% MER, 75% maturity guarantee) and a balanced mutual fund (1.4% MER, no guarantees). The client is 58, retiring in 7 years with moderate risk tolerance. What is the most balanced recommendation approach?',opts:['Always choose the mutual fund - lower fees always win','Always choose the seg fund - guarantees always justify higher fees','Analyze whether the guarantee value justifies the 1.4% additional annual cost given the client specific timeline and risk profile and document the rationale','Choose based solely on which product generates more commission'],a:2,exp:'There is no universal answer. The right recommendation requires analysis. A client retiring in 7 years faces sequence-of-returns risk. The 75% guarantee provides real value in this scenario. Advisors should model both outcomes, explain the trade-off clearly and document which option the client chose and why. The recommendation must be client-driven not commission-driven.'},
+{d:'intermediate',q:'A client profile shows moderate risk tolerance, a 15-year horizon and a need for some capital protection. The advisor recommends a balanced seg fund with a 75% maturity guarantee. What makes this recommendation defensible?',opts:['The advisor chose the fund with the highest recent return','The recommendation matches the client moderate risk profile, the 15-year horizon aligns with maturity, the 75% guarantee provides capital protection and the balanced allocation suits moderate risk tolerance','The fund has the lowest MER available','The advisor has personal experience with this specific fund'],a:1,exp:'A defensible recommendation can be traced directly back to the client KYC profile. Every element should connect to a documented client need: balanced allocation matches moderate risk tolerance; 15-year maturity matches investment horizon; 75% guarantee addresses capital protection need.'},
+{d:'intermediate',q:'A client asks to recommend a life annuity. What should the advisor research before making a specific recommendation?',opts:['Only the insurer stock price performance','Current annuity rates from multiple insurers, product features and how the annuity fits the client income needs and tax situation','Only the client current bank account balance','The annuity past performance on stock exchanges'],a:1,exp:'Annuity rates vary significantly between insurers and change frequently based on interest rates. An advisor must shop the market comparing current rates, guarantee options, payment structures and insurer financial strength. The recommendation must also consider tax efficiency, income timing and the client overall retirement income picture.'},
+{d:'intermediate',q:'A 72-year-old client wants to convert their RRIF to provide guaranteed income. What product is most suitable?',opts:['A non-registered prescribed annuity','A registered life annuity purchased with RRIF funds','A TFSA-funded balanced segregated fund','A GIC ladder inside the RRIF'],a:1,exp:'A registered life annuity purchased with RRIF funds converts the tax-deferred registered savings into guaranteed lifetime income. All payments are fully taxable consistent with RRIF withdrawal taxation. This eliminates the risk of outliving RRIF assets and removes the obligation to manage minimum withdrawals.'},
+{d:'beginner',q:'What should be covered in a client annual review?',opts:['Only the investment performance of the fund','Updated KYC, whether the product still meets the client needs, fund performance, beneficiary designations and any regulatory changes','Only the administrative fees charged by the insurer','The personal financial planning needs of the client family members only'],a:1,exp:'The annual review covers: updated KYC (has the client situation changed?), investment performance vs benchmarks, whether the product still suits the client updated situation, beneficiary designation review, regulatory or product changes and whether adjustments are needed.'},
+{d:'advanced',q:'A complex client needs income security, creditor protection and estate efficiency with $300,000 RRSP, $150,000 non-registered savings and business debts of $80,000. Which combination is most appropriate?',opts:['Convert entire RRSP to cash and pay off all debts immediately','Convert RRSP to a RRIF; invest non-registered funds in a seg fund with irrevocable spouse beneficiary for creditor protection and probate bypass; defer CPP to 70 for maximum benefit','Invest everything in GICs for safety','Purchase a life annuity with all funds immediately to lock in guaranteed income'],a:1,exp:'This requires a multi-product solution. The RRIF preserves tax-deferred growth with flexibility. The non-registered seg fund with an irrevocable spousal beneficiary addresses creditor protection (business debts) and estate efficiency (bypasses probate). Deferring CPP to 70 maximizes guaranteed government income.'},
+{d:'intermediate',q:'An advisor recommends a seg fund to a client. The client later claims it was unsuitable. What documentation would best protect the advisor?',opts:['A copy of the Fund Facts document only','Completed and signed KYC form, a written recommendation letter explaining how the product matches the client profile, meeting notes, Fund Facts delivery confirmation and a signed client acknowledgment','A verbal confirmation recorded on the advisor personal phone','The insurance company product approval stamp'],a:1,exp:'In a dispute documentation is the advisor entire defence. The ideal paper trail includes: a completed signed KYC form; a written recommendation with explicit rationale; meeting notes; Fund Facts delivery confirmation; and client signatures. The absence of any of these creates gaps that regulators and courts will fill against the advisor.'},
+{d:'beginner',q:'A client wants to move $80,000 from a bank GIC into a segregated fund. What must the advisor confirm?',opts:['Nothing - just process it','The GIC maturity date to avoid early redemption penalties and document the rationale for the transfer','A lump-sum deposit with no special considerations','The advisor should discourage any movement from guaranteed products'],a:1,exp:'Moving funds from an external account into a seg fund is a transfer-in. The advisor must confirm the GIC has not locked in the client with early redemption penalties and must document why the transfer serves the client best interests. Recommending transfers solely for compensation is churning.'},
+{d:'advanced',q:'A fund marketing material shows 15% annual return over the past 3 years. What context must an advisor provide?',opts:['None - published performance data is accurate and speaks for itself','Past performance is not indicative of future results; the advisor must also disclose the benchmark comparison, volatility and how the performance period was selected','The advisor should double the return to show conservative estimates','Performance data only matters for equity funds'],a:1,exp:'Regulators require advisors to contextualize past performance data. A 3-year return cherry-picked during a bull market can be highly misleading. Required context includes: the disclaimer that past performance does not guarantee future results; benchmark comparison; volatility; and whether the time period is representative.'},
+{d:'advanced',q:'A client has been shown a fund with 15% annual returns over 3 years. They want to invest their full $500,000 retirement savings in this one fund. What must the advisor assess and communicate?',opts:['Process the investment - the client has the right to make their own decisions','Assess suitability: whether concentrating all retirement savings in one high-performance fund is appropriate given age, risk tolerance, time horizon and income needs - document the assessment and all client discussions before proceeding','Simply add a disclaimer and process the investment','Recommend the fund to other clients since it has performed so well'],a:1,exp:'A fully concentrated bet on a single high-performing fund with all retirement savings is a massive suitability and risk management concern regardless of past performance. The advisor must assess the client full profile, document the concentration risk, explain that past performance does not predict future results and ensure the client fully understands the risk before proceeding.'},
+{d:'intermediate',q:'Why is the contract maturity date a critical element to disclose when recommending a seg fund?',opts:['Because the maturity date determines the MER charged','Because the maturity guarantee only applies if the contract is held to maturity - early surrender forfeits the guarantee','Because clients cannot make withdrawals until maturity','Because the maturity date determines the beneficiary payout schedule'],a:1,exp:'The maturity guarantee only activates at the contract maturity date. If the client surrenders early they receive only the market value not the guaranteed amount. Recommending a 10-year maturity contract to a client who may need funds in 5 years is a suitability failure.'},
+{d:'intermediate',q:'A client profile shows moderate risk tolerance, needs capital protection and wants income. Which seg fund type best suits all three needs?',opts:['An aggressive equity fund with the highest historical return','A balanced income seg fund with a 100% maturity guarantee','A specialty tech sector fund','A money market fund only'],a:1,exp:'A balanced income seg fund addresses all three needs: the bond holdings provide income, the equity component provides modest growth, and the 100% maturity guarantee ensures capital is protected. Aggressive or specialty equity funds would violate the client risk tolerance. A money market fund alone would not meet the income and growth needs.'},
+{d:'advanced',q:'When should an advisor recommend a seg fund over a mutual fund with an identical investment mandate?',opts:['Always - seg funds are always superior to mutual funds','When the client specifically needs or benefits from: maturity guarantee protection, death benefit guarantee, named beneficiary to bypass probate, creditor protection, or Assuris investor protection - and the additional MER cost is justified by these specific needs','Never - mutual funds always have lower fees and are always more appropriate','Only when the client is over age 70'],a:1,exp:'A seg fund recommendation over a mutual fund is justified when the client specifically needs and benefits from one or more of the unique insurance features: capital protection via maturity guarantee, estate planning via named beneficiary, creditor protection, or Assuris insolvency protection. If none of these features apply to the client the higher MER of a seg fund may not be justified.'}
+];
+const isAdmin=localStorage.getItem('passllqp_admin')==='true';
+if(!isAdmin){document.getElementById('mc').style.display='none';document.getElementById('lk').style.display='block'}
+function sw(t){
+  document.getElementById('tvT').classList.toggle('show',t==='t');
+  document.getElementById('tvQ').classList.toggle('show',t==='q');
+  document.getElementById('tT').classList.toggle('on',t==='t');
+  document.getElementById('tQ').classList.toggle('on',t==='q');
+  if(t==='q'&&cur===0&&as[0]===null)render();
+}
+let cur=0,as=new Array(qs.length).fill(null),ss=new Array(qs.length).fill(null);
+const sh=[...qs].sort(()=>Math.random()-0.5);
+function render(){
+  const q=sh[cur],tot=sh.length;
+  document.getElementById('qn').textContent='Q '+(cur+1)+' of '+tot;
+  document.getElementById('pf').style.width=((cur/tot)*100)+'%';
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  document.getElementById('et').textContent=q.exp;
+  const ex=document.getElementById('ex');
+  as[cur]!==null?ex.classList.add('show'):ex.classList.remove('show');
+  const c=document.getElementById('ops');c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');d.className='op';
+    if(as[cur]!==null){d.classList.add('dis');if(i===q.a)d.classList.add('ok');if(i===ss[cur]&&ss[cur]!==q.a)d.classList.add('no');}
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(as[cur]===null)d.onclick=()=>sel(d,i===q.a,i,q.a);
+    c.appendChild(d);
+  });
+  const nb=document.getElementById('nxb');
+  nb.disabled=(as[cur]===null);
+  nb.textContent=cur===sh.length-1?'Finish':'Next';
+  document.getElementById('pvb').disabled=(cur===0);
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=a>0?Math.round((s/a)*100)+'%':'--';
+}
+function sel(el,ok,ch,co){
+  document.querySelectorAll('.op').forEach((o,i)=>{o.onclick=null;o.classList.add('dis');if(i===co)o.classList.add('ok');});
+  if(!ok)el.classList.add('no');
+  document.getElementById('ex').classList.add('show');
+  document.getElementById('nxb').disabled=false;
+  as[cur]=ok;ss[cur]=ch;
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=Math.round((s/a)*100)+'%';
+}
+function nxt(){cur++;if(cur>=sh.length){done();return;}render();}
+function prev(){if(cur>0){cur--;render();}}
+function done(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const s=as.filter(v=>v===true).length;
+  const p=Math.round((s/sh.length)*100);
+  document.getElementById('rp').textContent=p+'%';
+  document.getElementById('rsub').textContent=p>=60?'You passed!':'Keep practising.';
+  document.getElementById('rc').textContent=s;
+  document.getElementById('rw').textContent=sh.length-s;
+  document.getElementById('res').classList.add('show');
+}
+function restart(){
+  cur=0;as=new Array(qs.length).fill(null);ss=new Array(qs.length).fill(null);
+  document.getElementById('qc').style.display='block';
+  document.getElementById('ft').style.display='flex';
+  document.getElementById('res').classList.remove('show');
+  render();
+}
+if(isAdmin)render();
+</script>
+</body>
+</html>

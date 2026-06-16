@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter 3 - Annuities | PassLLQP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#185FA5;--bl:#E6F1FB;--g:#0F6E56;--r:#993C1D;--t:#0F1117;--m:#6B7280;--bo:#E5E7EB;--bg:#F9FAFB;--w:#fff;--rd:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+nav{background:var(--w);border-bottom:1px solid var(--bo);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}.logo span{color:var(--b)}
+.bk{font-size:13px;color:var(--m);cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+.tabs{display:flex;gap:4px;background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:var(--m);cursor:pointer;border-radius:9px;transition:all .15s}
+.tab.on{background:var(--b);color:#fff}
+.tv{display:none}.tv.show{display:block}
+.th{background:var(--b);color:#fff;border-radius:var(--rd);padding:24px;margin-bottom:16px}
+.th h1{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.th p{font-size:13px;opacity:.85;line-height:1.6}
+.ts{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:22px;margin-bottom:12px}
+.ts h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ts p{font-size:13px;color:var(--m);line-height:1.8;margin-bottom:8px}
+.ts p:last-child{margin-bottom:0}
+.tc{background:var(--bl);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:10px;font-size:13px;color:var(--t);line-height:1.7}
+.tc strong{color:var(--b)}
+.tt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.tt th{background:var(--bl);color:var(--b);padding:8px 10px;text-align:left;font-weight:600}
+.tt td{padding:8px 10px;border-top:1px solid var(--bo);color:var(--m)}
+.tt tr:nth-child(even) td{background:var(--bg)}
+.sqb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:8px}
+.qv{display:none}.qv.show{display:block}
+.qh{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:14px 18px;margin-bottom:14px}
+.qt{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ql{font-size:14px;font-weight:600}
+.sr{display:flex;gap:8px}
+.sb{background:var(--bg);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--m)}
+.sb strong{color:var(--t)}
+.pb{height:4px;background:var(--bo);border-radius:2px}
+.pf{height:4px;background:var(--b);border-radius:2px;transition:width .3s}
+.qc{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:24px;margin-bottom:12px}
+.qn{font-size:11px;font-weight:600;color:var(--b);letter-spacing:.05em}
+.dp{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.dp.beginner{background:#EAF3DE;color:#3B6D11}
+.dp.intermediate{background:#FAEEDA;color:#854F0B}
+.dp.advanced{background:#FAECE7;color:var(--r)}
+.qt2{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.qx{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:18px}
+.ops{display:flex;flex-direction:column;gap:8px}
+.op{border:1px solid var(--bo);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:13px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:border-color .1s,background .1s}
+.op:hover:not(.dis){border-color:var(--b);background:var(--bl)}
+.op.ok{border-color:var(--g);background:#E1F5EE;pointer-events:none}
+.op.no{border-color:var(--r);background:#FAECE7;pointer-events:none}
+.op.dis{pointer-events:none}
+.ol{font-size:11px;font-weight:600;color:var(--b);background:var(--bl);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.op.ok .ol{color:var(--g);background:#9FE1CB}
+.op.no .ol{color:var(--r);background:#F5C4B3}
+.ex{background:var(--bg);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:12px;display:none}
+.ex.show{display:block}
+.el{font-size:11px;font-weight:600;color:var(--b);margin-bottom:5px}
+.ex p{font-size:13px;color:var(--m);line-height:1.6}
+.ft{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pvb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.pvb:disabled{opacity:.3;cursor:default}
+.nxb{background:var(--b);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.nxb:disabled{opacity:.35;cursor:default}
+.res{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center;display:none}
+.res.show{display:block}
+.rp{font-family:'Sora',sans-serif;font-size:52px;font-weight:700;color:var(--b);margin-bottom:8px}
+.rs{font-size:14px;color:var(--m);margin-bottom:24px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.rv{background:var(--bg);border-radius:9px;padding:14px}
+.rv .v{font-size:22px;font-weight:600}.rv .l{font-size:12px;color:var(--m)}
+.ncb{background:var(--b);color:#fff;border:none;padding:11px 24px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-right:8px}
+.rtb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.tb2{background:var(--bl);border:none;color:var(--b);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px;display:block;width:100%}
+.lock{background:var(--w);border:1.5px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center}
+.lock h2{font-size:20px;font-weight:700;margin-bottom:10px}
+.lock p{font-size:14px;color:var(--m);margin-bottom:24px;line-height:1.6}
+.ub{background:var(--b);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+</head>
+<body>
+<nav>
+<div class="logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
+<div class="bk" onclick="location.href='index.html'">Back to Home</div>
+</nav>
+<div class="wrap">
+<div id="lk" class="lock" style="display:none">
+<div style="font-size:48px;margin-bottom:16px">🔒</div>
+<h2>Chapter 3 is locked</h2>
+<p>Unlock all 8 chapters and the full mock exam for a one-time payment of $29.</p>
+<button class="ub" onclick="alert('Payment coming soon!')">Unlock full access - $29</button>
+<br><br>
+<button class="rtb" style="margin-top:12px" onclick="location.href='chapter1.html'">Back to Chapter 1 (free)</button>
+</div>
+<div id="mc">
+<div class="tabs">
+<div class="tab on" id="tT" onclick="sw('t')">Tutorial</div>
+<div class="tab" id="tQ" onclick="sw('q')">Quiz</div>
+</div>
+<div class="tv show" id="tvT">
+<div class="th"><h1>Chapter 3 - Annuities</h1><p>Read this lesson first. It covers all key concepts you will be tested on.</p></div>
+
+<div class="ts"><h2><span>💰</span> What is an annuity?</h2>
+<p>An annuity converts a lump sum into regular income payments. You give the insurance company your capital and they pay you back over time partly as return of capital and partly as interest.</p>
+<p>Think of it as the opposite of life insurance: life insurance protects against dying too early; a life annuity protects against living too long.</p>
+<div class="tc"><strong>Two core types:</strong> Payout annuities (pay regular income) and Accumulation annuities (save and grow, also called insurance GICs).</div></div>
+<div class="ts"><h2><span>📋</span> Types of payout annuities</h2>
+<table class="tt"><tr><th>Type</th><th>How long it pays</th><th>Best for</th></tr>
+<tr><td>Term certain</td><td>Fixed years. If annuitant dies beneficiary gets remaining payments.</td><td>Bridging income gaps</td></tr>
+<tr><td>Single life</td><td>For the rest of the annuitant life. Stops at death.</td><td>Maximum income, no estate concern</td></tr>
+<tr><td>Joint life</td><td>Until both spouses die. Survivor gets reduced percentage.</td><td>Couples needing survivor income</td></tr>
+</table>
+<div class="tc"><strong>Immediate vs deferred:</strong> Immediate annuity starts payments right away. Deferred annuity starts payments at a future date with an accumulation phase first.</div></div>
+<div class="ts"><h2><span>📊</span> What affects annuity payment amounts?</h2>
+<table class="tt"><tr><th>Factor</th><th>Effect on monthly payment</th></tr>
+<tr><td>Older age at purchase</td><td>Higher - shorter expected lifespan</td></tr>
+<tr><td>Male gender</td><td>Higher - shorter average lifespan than females</td></tr>
+<tr><td>Larger deposit</td><td>Higher</td></tr>
+<tr><td>Higher interest rates at purchase</td><td>Higher</td></tr>
+<tr><td>Guarantee period added</td><td>Lower - insurer takes on more risk</td></tr>
+<tr><td>Joint life vs single</td><td>Lower - covers two lives</td></tr>
+<tr><td>Indexing added</td><td>Lower initially - future payments will increase</td></tr>
+</table></div>
+<div class="ts"><h2><span>💸</span> Taxation of annuities</h2>
+<p><strong>Registered annuity</strong> (funded from RRSP or RRIF) - Every payment is 100% taxable as ordinary income. No return-of-capital component.</p>
+<p><strong>Non-registered prescribed annuity</strong> - Each payment blends capital (non-taxable) and interest (taxable). The SAME taxable amount every year. Predictable tax burden.</p>
+<p><strong>Non-registered accrual annuity</strong> - Interest is front-loaded in early years. More tax early, less later. Less tax-efficient than prescribed.</p>
+<div class="tc"><strong>Prescribed requirements:</strong> Must not be indexed. Annuitant, payee and owner must be the same person. Payments must begin by Dec 31 of the year following purchase.</div></div>
+<div class="ts"><h2><span>⚠️</span> Key risks and Assuris protection</h2>
+<p><strong>Interest rate risk</strong> - Rates locked in at purchase forever. Cannot renegotiate. Managed by laddering annuity purchases over time.</p>
+<p><strong>Inflation risk</strong> - Fixed payment buys less every year. Managed with indexed annuities.</p>
+<p><strong>Liquidity risk</strong> - Once a payout annuity starts you generally cannot surrender it.</p>
+<p><strong>Loss of capital</strong> - Life annuity without guarantee: if you die early remaining capital stays with the insurer.</p>
+<div class="tc"><strong>Assuris protection for annuities:</strong> Payout annuities - monthly payments up to $5,000 fully protected; above $5,000 protected at greater of $5,000 or 90%. Accumulation annuities - 100% up to $100,000 or 90% whichever is higher.</div></div>
+<div class="ts"><h2><span>🆕</span> New annuity types</h2>
+<p><strong>ALDA</strong> - Purchased with registered funds. Payments deferred until age 85. Max 25% of qualifying plan or $180,000 in 2025. Cannot be surrendered or provide guarantees. Excluded from RRIF minimum withdrawal calculations.</p>
+<p><strong>VPLA</strong> - For PRPP or DCPP members. Payments vary based on investment performance and group mortality. Minimum 10 retired members required. No guarantees.</p></div>
+<button class="sqb" onclick="sw('q')">Start the quiz</button>
+</div>
+<div class="qv" id="tvQ">
+<div class="qh">
+<div class="qt"><div class="ql">Chapter 3 - Annuities</div><div class="sr"><div class="sb">Correct: <strong id="sc">0</strong></div><div class="sb"><strong id="pc">--</strong></div></div></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+<div class="qc" id="qc">
+<div class="qt2"><span class="qn" id="qn">Q 1</span><span class="dp beginner" id="dp">Beginner</span></div>
+<div class="qx" id="qx"></div>
+<div class="ops" id="ops"></div>
+<div class="ex" id="ex"><div class="el">WHY THIS IS CORRECT</div><p id="et"></p></div>
+</div>
+<div class="ft" id="ft">
+<button class="pvb" id="pvb" onclick="prev()" disabled>Prev</button>
+<button class="nxb" id="nxb" disabled onclick="nxt()">Next</button>
+</div>
+<div class="res" id="res">
+<div class="rp" id="rp">0%</div>
+<div class="rs" id="rsub">Chapter 3 complete</div>
+<div class="rg">
+<div class="rv"><div class="v" id="rc">0</div><div class="l">correct</div></div>
+<div class="rv"><div class="v" id="rw">0</div><div class="l">incorrect</div></div>
+<div class="rv"><div class="v">30</div><div class="l">questions</div></div>
+</div>
+<button class="ncb" onclick="location.href='chapter4.html'">Next chapter</button>
+<button class="rtb" onclick="restart()">Retry</button>
+<button class="tb2" onclick="sw('t')">Review tutorial</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+const qs=[
+{d:'beginner',q:'What is an annuity?',opts:['Life insurance that pays a lump sum at death','A contract where you give a lump sum to an insurer in exchange for regular income payments','A government pension plan','A savings account that earns guaranteed interest'],a:1,exp:'An annuity converts a lump sum into regular income payments partly as return of capital and partly as interest. A life annuity protects against outliving your money.'},
+{d:'beginner',q:'What is the defining feature of a life annuity?',opts:['Payments stop after 10 years','Payments continue for the rest of the annuitant life no matter how long they live','Payments are a single lump sum at retirement','Payments are guaranteed only if the annuitant is healthy'],a:1,exp:'A life annuity guarantees income for as long as the annuitant lives. The insurance company takes on the longevity risk making it the most powerful tool for eliminating the fear of outliving retirement savings.'},
+{d:'beginner',q:'A married couple wants annuity income that continues to the surviving spouse. Which type should they choose?',opts:['Single life annuity','Term certain annuity','Joint life annuity','Accumulation annuity'],a:2,exp:'A joint life annuity covers two lives. Payments continue as long as either annuitant is alive. When one dies payments continue to the survivor at the original amount or a reduced percentage specified in the contract.'},
+{d:'beginner',q:'What is a term certain annuity?',opts:['An annuity that pays for the annuitant life','An annuity that pays income for a specified fixed period regardless of whether the annuitant is alive','An annuity with a guaranteed minimum term before rates adjust','An annuity that terminates when interest rates change'],a:1,exp:'A term certain annuity pays income for a specified number of years. If the annuitant dies before the term ends payments continue to the beneficiary for the remaining years.'},
+{d:'beginner',q:'Which factor INCREASES the monthly payment from a life annuity all else being equal?',opts:['Younger age at purchase','Adding a 20-year guarantee period','Larger deposit amount','Female gender of annuitant'],a:2,exp:'A larger deposit means more capital for the insurer to pay out resulting in a higher monthly payment. Younger age decreases payments. Adding a guarantee period decreases payments. Female gender decreases payments because women live longer on average.'},
+{d:'beginner',q:'Who is legally permitted to sell ALL types of annuity contracts in Canada?',opts:['Any financial advisor with a mutual fund licence','Only life insurance licensed advisors with the LLQP','Bank employees with a general investment certification','Any individual registered with provincial securities commission'],a:1,exp:'Life insurance companies sell all forms of annuities through LLQP-licensed agents. Banks can only sell term certain annuities. Only LLQP-licensed advisors can sell life annuities and joint life annuities.'},
+{d:'beginner',q:'How does Assuris protect payout annuity holders if an insurer becomes insolvent?',opts:['100% protection on all payments regardless of amount','Payments up to $5,000 per month fully protected; above $5,000 the holder receives the greater of $5,000 or 90% of promised benefit','Only the original premium is protected not ongoing payments','Assuris does not cover annuities only segregated funds'],a:1,exp:'Assuris protects payout annuity holders for the greater of $5,000 per month or 90% of the promised monthly benefit. If your annuity pays $3,000 per month you are fully protected. If it pays $7,000 per month you receive $6,300 which is 90%.'},
+{d:'beginner',q:'What is an accumulation annuity also known as?',opts:['A payout annuity','An insurance GIC - a savings-type annuity that grows to a lump sum and can be converted to a payout annuity at maturity','A government accumulation plan','A term certain annuity'],a:1,exp:'An accumulation annuity is a form of term savings that accumulates principal plus interest to a maturity date. It does not produce income during the accumulation phase. It offers insurance benefits like named beneficiary designation and potential creditor protection that bank GICs do not have.'},
+{d:'beginner',q:'What does creditor protection on an annuity depend on?',opts:['Whether the annuity is registered or non-registered','Whether a preferred beneficiary such as spouse child parent or grandchild is named or an irrevocable beneficiary is designated','Whether the annuity was purchased before age 65','Whether the annuity has a guarantee period'],a:1,exp:'Annuity creditor protection depends on who is named as beneficiary. When a preferred beneficiary class is named or when the beneficiary designation is irrevocable the annuity value may be protected from creditor claims.'},
+{d:'beginner',q:'What is the difference between an immediate annuity and a deferred annuity?',opts:['Immediate annuities pay more; deferred annuities are safer','An immediate annuity starts payments right away; a deferred annuity delays payments to a future date with an accumulation phase first','Immediate annuities are registered; deferred annuities are non-registered','There is no difference'],a:1,exp:'An immediate annuity starts making payments within the first payment period after purchase. A deferred annuity first accumulates capital earning interest then at the future date the income phase begins.'},
+{d:'intermediate',q:'A client buys a life annuity with a 10-year guarantee period and dies after 3 years. What happens?',opts:['Payments stop immediately','Payments continue to the named beneficiary for the remaining 7 years of the guarantee period','The insurance company refunds the original deposit to the estate','Payments continue for the annuitant original life expectancy'],a:1,exp:'A guarantee period ensures payments are made for at least the specified years regardless of when the annuitant dies. If the client dies after 3 years of a 10-year guarantee the beneficiary receives payments for the remaining 7 years.'},
+{d:'intermediate',q:'How does a prescribed annuity reduce the tax burden compared to an accrual annuity?',opts:['All payments are fully tax-free','The interest portion is front-loaded with highest tax in early years','The taxable interest portion is blended evenly across all payments keeping the annuitant in a stable tax bracket each year','Prescribed annuities convert interest income into capital gains'],a:2,exp:'In a prescribed annuity each payment has the SAME blend of taxable interest and non-taxable capital throughout the contract life. Same tax bill every year. An accrual annuity front-loads the tax in early years creating a heavier burden initially.'},
+{d:'intermediate',q:'A client uses RRSP funds to purchase a life annuity. How are the payments taxed?',opts:['Payments are partially tax-free as a return of capital','Payments are fully taxable as ordinary income in the year received','Payments are taxed as capital gains at 50% inclusion','Payments are completely tax-free since RRSP funds were already taxed'],a:1,exp:'RRSP contributions were pre-tax dollars that grew tax-deferred. When those funds purchase a registered annuity every dollar of payment received is 100% taxable as ordinary income. There is no return-of-capital component.'},
+{d:'intermediate',q:'A client with a terminal illness wants maximum monthly income from an annuity. How does this affect the product?',opts:['They cannot purchase an annuity due to health conditions','Their monthly income payments may be higher because the insurer expects a shorter payout period - called an impaired life annuity','Their payments will be lower because the insurer charges a health premium','No effect - annuity rates are standardized regardless of health'],a:1,exp:'An impaired life annuity is specifically designed for individuals with reduced life expectancy. Because the insurer expects to make fewer payments they can afford to pay a higher monthly income for the same deposit.'},
+{d:'intermediate',q:'A client purchased a life annuity two years ago and now wants to cash it out. What should the advisor tell them?',opts:['They receive the full original deposit back with interest','Most life annuities are non-surrenderable once income has begun','They are charged a 10% penalty but receive the full value','They must wait until age 71 to access the funds'],a:1,exp:'Once a payout annuity is in payment mode it is generally non-surrenderable. The annuitant gave up liquidity in exchange for guaranteed lifetime income. Advisors must ensure clients understand this limitation before purchase.'},
+{d:'intermediate',q:'A couple purchases a joint life annuity with 60% continuation. Initial payment is $3,000 per month. The husband dies. What does the wife receive monthly?',opts:['$3,000 - payments never change','$1,800 - 60% of $3,000','$1,200 - 40% of the original payment','$2,400 - 80% of the original payment'],a:1,exp:'A joint life annuity with 60% continuation means the surviving spouse receives 60% of the original joint income after the first death. 60% of $3,000 equals $1,800 per month.'},
+{d:'intermediate',q:'What is an indexed annuity and why might a retiree choose one despite receiving less income initially?',opts:['An annuity indexed to stock market performance','An annuity where payments increase annually to help keep pace with inflation - initial payments are lower but grow over time','An annuity that adjusts the premium based on the annuitant age','An annuity where the insurer indexes payments to their own investment performance'],a:1,exp:'An indexed annuity increases payments annually by a set percentage or tied to CPI. Initial payments are lower because the capital must fund future higher payments. Over a long retirement the indexed annuity provides substantially more income.'},
+{d:'intermediate',q:'What is an insured life annuity strategy?',opts:['A government-guaranteed annuity combined with a provincial pension plan','A life annuity combined with a life insurance policy - the annuity provides maximum lifetime income while the insurance replaces the capital at death for the estate','An annuity combined with a GIC to guarantee the principal','A joint annuity that also provides disability coverage'],a:1,exp:'An insured annuity pairs a life annuity for maximum income with a life insurance policy to replace the capital for the estate at death. The annuity income funds the insurance premium. The beneficiary receives the life insurance death benefit tax-free at death. The client must be insurable.'},
+{d:'intermediate',q:'A client transfers RRSP funds directly to purchase a registered annuity. What are the tax consequences?',opts:['The full RRSP value is immediately taxable as income','No immediate tax - the direct transfer continues the tax deferral; income tax only applies when annuity payments are received','50% of the transferred amount is taxable as a capital gain','A 10% withholding tax is automatically applied'],a:1,exp:'A direct transfer from an RRSP to a registered annuity does not trigger a taxable event. The tax deferral continues. If the client withdrew the RRSP funds personally and then bought the annuity withholding tax would apply and the full amount would be taxable that year.'},
+{d:'intermediate',q:'What is the primary risk of purchasing an annuity when interest rates are low?',opts:['The annuity payment will decrease over time','The annuity payment is locked in at the low rate for life - if rates rise later the annuitant cannot benefit','The insurer may cancel the contract if rates remain low too long','Low rates cause the annuity to convert to a GIC automatically'],a:1,exp:'Annuity rates are determined by prevailing interest rates at purchase and locked in for life. Buying when rates are low means lower income payments forever. Advisors can manage this through annuity laddering - purchasing portions of the annuity at different times to average out the rate environment.'},
+{d:'advanced',q:'An ALDA has which of the following features?',opts:['Payments can begin at any age chosen by the annuitant','It can only be purchased with non-registered funds','Payments are deferred until age 85, amounts transferred are excluded from RRIF minimum withdrawal calculations, and it cannot be surrendered or provide guarantees','It provides a guaranteed minimum payment regardless of when payments start'],a:2,exp:'An ALDA is purchased with registered funds (RRSP, RRIF, DCPP, PRPP, DPSP) and defers payments until age 85. Funds in an ALDA are excluded from RRIF minimum withdrawal calculations. The ALDA cannot be surrendered and provides no guarantees. Maximum purchase: 25% of qualifying plan or $180,000 in 2025.'},
+{d:'advanced',q:'Matthew buys a prescribed annuity for $200,000 with non-registered funds. Each monthly payment is $1,200 of which $900 is return of capital and $300 is interest. He is in the 33% tax bracket. What is his monthly tax?',opts:['$396 - 33% of the full $1,200','$99 - 33% of the $300 interest portion only','$297 - 33% of the $900 capital portion','Nothing - prescribed annuity payments are fully tax-free'],a:1,exp:'In a prescribed annuity only the interest portion is taxable. Monthly tax equals $300 interest times 33% marginal rate equals $99. This predictable level tax amount is the key advantage of prescribed treatment.'},
+{d:'advanced',q:'A client surrenders a term certain annuity before it matures. What value do they receive?',opts:['The full original premium with all accrued interest','The commuted value - the present value of remaining guaranteed payments discounted at the insurer current interest rate','Zero - term annuities cannot be surrendered','The original premium minus all payments already received'],a:1,exp:'A term certain annuity can generally be surrendered for its commuted value - the present value of remaining payments discounted at a current interest rate. Because of this discounting the commuted value is typically less than the sum of undiscounted remaining payments.'},
+{d:'advanced',q:'When structuring an insured life annuity what is the critical first step?',opts:['Purchase the life annuity first to lock in the best rate','Obtain the life insurance policy FIRST then purchase the life annuity','Deposit funds into a seg fund first as a bridge','Consult with the CRA first to confirm tax treatment'],a:1,exp:'The life insurance policy must be obtained FIRST. If the proposed policyholder cannot qualify for life insurance due to health the insured annuity strategy cannot be implemented at all.'},
+{d:'advanced',q:'A client has a joint life annuity with a 10-year guarantee. Primary annuitant dies after 2 years and surviving annuitant dies 3 years later. Payments were $300 per month. The son is beneficiary. What does the son receive?',opts:['Nothing - the annuity ended when the second annuitant died','A lump sum of $18,000 representing 5 years of remaining guarantee payments','A lump sum of $36,000 representing 10 years of payments','Payments continue for the son lifetime'],a:1,exp:'Total payments were made for 5 years. The 10-year guarantee means a minimum of 120 payments must be made. Since only 60 payments were made the son receives the remaining 60 payments. $300 times 60 equals $18,000.'},
+{d:'advanced',q:'A VPLA (Variable Payment Life Annuity) has which of the following features?',opts:['A guaranteed fixed monthly payment for life','Payments that vary based on investment performance of the pool and mortality experience of the group - available for PRPP and DCPP members with minimum 10 retired members required','An annuity available to all Canadians regardless of pension plan membership','A government-guaranteed annuity for low-income retirees'],a:1,exp:'A VPLA is available through PRPP or DCPP plans. Payments vary annually based on investment performance of the pool and mortality experience of the group. It provides lifetime income while allowing participants to benefit from investment gains. A minimum of 10 retired members is required.'},
+{d:'advanced',q:'Why is the insured annuity strategy particularly valuable from a tax perspective?',opts:['Because all annuity income becomes tax-free when combined with life insurance','Because the life insurance death benefit is received tax-free effectively replacing the capital while the annuity generates tax-efficient prescribed income during life','Because it allows annuity payments to be split with a spouse for tax purposes','Because the insurance premium is tax-deductible against annuity income'],a:1,exp:'The insured annuity strategy combines two tax efficiencies: the non-registered prescribed annuity generates tax-efficient income with only the interest portion taxable and the life insurance death benefit passes to beneficiaries completely tax-free replacing the original capital.'},
+{d:'advanced',q:'Peter buys a deferred life annuity with non-registered funds. Payments begin in 5 years. The annuity does not qualify as prescribed. How is the interest taxed during the 5-year deferral period?',opts:['No tax during deferral - all tax is deferred until payments begin','Interest accrues and must be reported annually on the tax return even though no payments have been received yet - this is called accrual taxation','Interest during deferral is taxed as capital gains at 50% inclusion','Tax is only triggered when Peter turns 71'],a:1,exp:'An accrual non-prescribed annuity requires annual reporting of interest as it accrues during the deferral period even though no payments are received. This creates taxable income with no corresponding cash flow which is a significant disadvantage.'},
+{d:'advanced',q:'A client receives total payments of $362,880 from a non-registered prescribed annuity funded with $400,000. They have now died. What is the tax implication of the $37,120 shortfall?',opts:['No tax implication - annuity principal deficits are not recognized','A capital loss of $37,120 that can offset other capital gains on the deceased final return','A deductible loss from income in the year the annuity ends','The shortfall is simply forfeited with no tax consequence'],a:1,exp:'With a non-registered prescribed annuity if the total capital paid out is less than the original premium the shortfall represents a capital loss. This capital loss of $37,120 can be used to offset capital gains in the year the annuity ends and if unused can be carried back 3 years or forward indefinitely.'},
+{d:'advanced',q:'An annuity contract has an error - the annuitant date of birth was entered incorrectly resulting in a higher income payment than entitled. What must happen?',opts:['Nothing - contracts cannot be amended once issued','The insurer must be notified immediately; the contract will be amended and the income payment recalculated - the client may owe back the overpaid amounts','The advisor absorbs the cost of the error personally','The error is simply noted in the file with no correction required'],a:1,exp:'Date of birth is a material term in an annuity contract - it directly affects the life expectancy calculation and monthly payment. An incorrect date of birth resulting in overpayment must be corrected. The insurer will amend the contract and the client may need to repay overpaid amounts.'}
+];
+const isAdmin=localStorage.getItem('passllqp_admin')==='true';
+if(!isAdmin){document.getElementById('mc').style.display='none';document.getElementById('lk').style.display='block'}
+function sw(t){
+  document.getElementById('tvT').classList.toggle('show',t==='t');
+  document.getElementById('tvQ').classList.toggle('show',t==='q');
+  document.getElementById('tT').classList.toggle('on',t==='t');
+  document.getElementById('tQ').classList.toggle('on',t==='q');
+  if(t==='q'&&cur===0&&as[0]===null)render();
+}
+let cur=0,as=new Array(qs.length).fill(null),ss=new Array(qs.length).fill(null);
+const sh=[...qs].sort(()=>Math.random()-0.5);
+function render(){
+  const q=sh[cur],tot=sh.length;
+  document.getElementById('qn').textContent='Q '+(cur+1)+' of '+tot;
+  document.getElementById('pf').style.width=((cur/tot)*100)+'%';
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  document.getElementById('et').textContent=q.exp;
+  const ex=document.getElementById('ex');
+  as[cur]!==null?ex.classList.add('show'):ex.classList.remove('show');
+  const c=document.getElementById('ops');c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');d.className='op';
+    if(as[cur]!==null){d.classList.add('dis');if(i===q.a)d.classList.add('ok');if(i===ss[cur]&&ss[cur]!==q.a)d.classList.add('no');}
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(as[cur]===null)d.onclick=()=>sel(d,i===q.a,i,q.a);
+    c.appendChild(d);
+  });
+  const nb=document.getElementById('nxb');
+  nb.disabled=(as[cur]===null);
+  nb.textContent=cur===sh.length-1?'Finish':'Next';
+  document.getElementById('pvb').disabled=(cur===0);
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=a>0?Math.round((s/a)*100)+'%':'--';
+}
+function sel(el,ok,ch,co){
+  document.querySelectorAll('.op').forEach((o,i)=>{o.onclick=null;o.classList.add('dis');if(i===co)o.classList.add('ok');});
+  if(!ok)el.classList.add('no');
+  document.getElementById('ex').classList.add('show');
+  document.getElementById('nxb').disabled=false;
+  as[cur]=ok;ss[cur]=ch;
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=Math.round((s/a)*100)+'%';
+}
+function nxt(){cur++;if(cur>=sh.length){done();return;}render();}
+function prev(){if(cur>0){cur--;render();}}
+function done(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const s=as.filter(v=>v===true).length;
+  const p=Math.round((s/sh.length)*100);
+  document.getElementById('rp').textContent=p+'%';
+  document.getElementById('rsub').textContent=p>=60?'You passed!':'Keep practising.';
+  document.getElementById('rc').textContent=s;
+  document.getElementById('rw').textContent=sh.length-s;
+  document.getElementById('res').classList.add('show');
+}
+function restart(){
+  cur=0;as=new Array(qs.length).fill(null);ss=new Array(qs.length).fill(null);
+  document.getElementById('qc').style.display='block';
+  document.getElementById('ft').style.display='flex';
+  document.getElementById('res').classList.remove('show');
+  render();
+}
+if(isAdmin)render();
+</script>
+</body>
+</html>

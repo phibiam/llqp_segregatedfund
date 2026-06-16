@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Chapter 6 - Seg Fund Contracts | PassLLQP</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
+<style>*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--b:#185FA5;--bl:#E6F1FB;--g:#0F6E56;--r:#993C1D;--t:#0F1117;--m:#6B7280;--bo:#E5E7EB;--bg:#F9FAFB;--w:#fff;--rd:12px}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--t);min-height:100vh}
+nav{background:var(--w);border-bottom:1px solid var(--bo);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:100}
+.logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}.logo span{color:var(--b)}
+.bk{font-size:13px;color:var(--m);cursor:pointer}
+.wrap{max-width:720px;margin:0 auto;padding:20px 16px 60px}
+.tabs{display:flex;gap:4px;background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:4px;margin-bottom:20px}
+.tab{flex:1;padding:9px;text-align:center;font-size:13px;font-weight:500;color:var(--m);cursor:pointer;border-radius:9px;transition:all .15s}
+.tab.on{background:var(--b);color:#fff}
+.tv{display:none}.tv.show{display:block}
+.th{background:var(--b);color:#fff;border-radius:var(--rd);padding:24px;margin-bottom:16px}
+.th h1{font-family:'Sora',sans-serif;font-size:20px;font-weight:700;margin-bottom:6px}
+.th p{font-size:13px;opacity:.85;line-height:1.6}
+.ts{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:22px;margin-bottom:12px}
+.ts h2{font-size:15px;font-weight:600;margin-bottom:10px;display:flex;align-items:center;gap:9px}
+.ts p{font-size:13px;color:var(--m);line-height:1.8;margin-bottom:8px}
+.ts p:last-child{margin-bottom:0}
+.tc{background:var(--bl);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:10px;font-size:13px;color:var(--t);line-height:1.7}
+.tc strong{color:var(--b)}
+.tt{width:100%;border-collapse:collapse;margin-top:10px;font-size:12px}
+.tt th{background:var(--bl);color:var(--b);padding:8px 10px;text-align:left;font-weight:600}
+.tt td{padding:8px 10px;border-top:1px solid var(--bo);color:var(--m)}
+.tt tr:nth-child(even) td{background:var(--bg)}
+.sqb{width:100%;background:var(--b);color:#fff;border:none;padding:14px;border-radius:var(--rd);font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:8px}
+.qv{display:none}.qv.show{display:block}
+.qh{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:14px 18px;margin-bottom:14px}
+.qt{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.ql{font-size:14px;font-weight:600}
+.sr{display:flex;gap:8px}
+.sb{background:var(--bg);border-radius:6px;padding:4px 10px;font-size:12px;color:var(--m)}
+.sb strong{color:var(--t)}
+.pb{height:4px;background:var(--bo);border-radius:2px}
+.pf{height:4px;background:var(--b);border-radius:2px;transition:width .3s}
+.qc{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:24px;margin-bottom:12px}
+.qn{font-size:11px;font-weight:600;color:var(--b);letter-spacing:.05em}
+.dp{font-size:11px;padding:3px 9px;border-radius:20px;font-weight:600}
+.dp.beginner{background:#EAF3DE;color:#3B6D11}
+.dp.intermediate{background:#FAEEDA;color:#854F0B}
+.dp.advanced{background:#FAECE7;color:var(--r)}
+.qt2{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.qx{font-size:15px;font-weight:500;line-height:1.6;margin-bottom:18px}
+.ops{display:flex;flex-direction:column;gap:8px}
+.op{border:1px solid var(--bo);border-radius:9px;padding:12px 14px;cursor:pointer;font-size:13px;line-height:1.5;display:flex;align-items:flex-start;gap:10px;transition:border-color .1s,background .1s}
+.op:hover:not(.dis){border-color:var(--b);background:var(--bl)}
+.op.ok{border-color:var(--g);background:#E1F5EE;pointer-events:none}
+.op.no{border-color:var(--r);background:#FAECE7;pointer-events:none}
+.op.dis{pointer-events:none}
+.ol{font-size:11px;font-weight:600;color:var(--b);background:var(--bl);width:20px;height:20px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.op.ok .ol{color:var(--g);background:#9FE1CB}
+.op.no .ol{color:var(--r);background:#F5C4B3}
+.ex{background:var(--bg);border-left:3px solid var(--b);border-radius:0 8px 8px 0;padding:12px 14px;margin-top:12px;display:none}
+.ex.show{display:block}
+.el{font-size:11px;font-weight:600;color:var(--b);margin-bottom:5px}
+.ex p{font-size:13px;color:var(--m);line-height:1.6}
+.ft{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pvb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:9px 16px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.pvb:disabled{opacity:.3;cursor:default}
+.nxb{background:var(--b);color:#fff;border:none;padding:9px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.nxb:disabled{opacity:.35;cursor:default}
+.res{background:var(--w);border:1px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center;display:none}
+.res.show{display:block}
+.rp{font-family:'Sora',sans-serif;font-size:52px;font-weight:700;color:var(--b);margin-bottom:8px}
+.rs{font-size:14px;color:var(--m);margin-bottom:24px}
+.rg{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:24px}
+.rv{background:var(--bg);border-radius:9px;padding:14px}
+.rv .v{font-size:22px;font-weight:600}.rv .l{font-size:12px;color:var(--m)}
+.ncb{background:var(--b);color:#fff;border:none;padding:11px 24px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-right:8px}
+.rtb{background:var(--bg);border:1.5px solid var(--bo);color:var(--t);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}
+.tb2{background:var(--bl);border:none;color:var(--b);padding:10px 22px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;margin-top:10px;display:block;width:100%}
+.lock{background:var(--w);border:1.5px solid var(--bo);border-radius:var(--rd);padding:36px;text-align:center}
+.lock h2{font-size:20px;font-weight:700;margin-bottom:10px}
+.lock p{font-size:14px;color:var(--m);margin-bottom:24px;line-height:1.6}
+.ub{background:var(--b);color:#fff;border:none;padding:12px 28px;border-radius:9px;font-size:14px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif}</style>
+</head>
+<body>
+<nav>
+<div class="logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
+<div class="bk" onclick="location.href='index.html'">Back to Home</div>
+</nav>
+<div class="wrap">
+<div id="lk" class="lock" style="display:none">
+<div style="font-size:48px;margin-bottom:16px">🔒</div>
+<h2>Chapter 6 is locked</h2>
+<p>Unlock all 8 chapters and the full mock exam for a one-time payment of $29.</p>
+<button class="ub" onclick="alert('Payment coming soon!')">Unlock full access - $29</button>
+<br><br>
+<button class="rtb" style="margin-top:12px" onclick="location.href='chapter1.html'">Back to Chapter 1 (free)</button>
+</div>
+<div id="mc">
+<div class="tabs">
+<div class="tab on" id="tT" onclick="sw('t')">Tutorial</div>
+<div class="tab" id="tQ" onclick="sw('q')">Quiz</div>
+</div>
+<div class="tv show" id="tvT">
+<div class="th"><h1>Chapter 6 - Seg Fund Contracts</h1><p>Read this lesson first. It covers all key concepts you will be tested on.</p></div>
+
+<div class="ts"><h2><span>📄</span> The seg fund contract process</h2>
+<p>Step 1 Complete KYC. Step 2 Make recommendation. Step 3 Deliver information folder and Fund Facts. Step 4 Complete application. Step 5 Submit to insurer. Step 6 Contract issued. Step 7 Deliver contract to client. Step 8 Confirm right of rescission which is 2 business days from receiving confirmation. Step 9 Post-sale follow-up. Step 10 Ongoing monitoring and annual review.</p>
+<div class="tc"><strong>AML requirement:</strong> Cash transactions over $10,000 must be reported to FINTRAC. Verify client identity for all new accounts. File a Suspicious Transaction Report (STR) for any suspicious activity regardless of dollar amount.</div></div>
+<div class="ts"><h2><span>⚠️</span> Key compliance rules</h2>
+<p><strong>Never commingle funds</strong> - Client cheques must be payable to the insurer never the advisor.</p>
+<p><strong>Beneficiary changes</strong> - Always verify revocable vs irrevocable before processing. Irrevocable beneficiary requires their written consent to change.</p>
+<p><strong>POA transactions</strong> - Verify document is valid, enduring, covers insurance and has not been revoked. Keep a certified copy on file.</p>
+<p><strong>Fund switches</strong> - Provide Fund Facts for new fund; document rationale; note tax implications in non-registered accounts.</p>
+<p><strong>Resets</strong> - Always disclose the extended maturity date; get client acknowledgment in writing.</p>
+<p><strong>Withdrawals</strong> - Explain proportional guarantee reduction and any tax implications before processing.</p></div>
+<div class="ts"><h2><span>📊</span> Claims and maturity</h2>
+<p><strong>Death benefit claim:</strong> Notify insurer promptly. Obtain claim form. Gather certified death certificate and beneficiary ID. Submit complete package. Benefit paid directly to beneficiary outside the estate and probate-free if beneficiary is named.</p>
+<p><strong>At maturity:</strong> Client receives greater of market value or guaranteed amount. Options: renew for a new term (restarts the clock); convert to annuity; take lump sum.</p>
+<p><strong>Early surrender:</strong> Client receives market value minus any DSC fee. Maturity guarantee is FORFEITED. Advisors must explain both costs before processing.</p></div>
+<button class="sqb" onclick="sw('q')">Start the quiz</button>
+</div>
+<div class="qv" id="tvQ">
+<div class="qh">
+<div class="qt"><div class="ql">Chapter 6 - Seg Fund Contracts</div><div class="sr"><div class="sb">Correct: <strong id="sc">0</strong></div><div class="sb"><strong id="pc">--</strong></div></div></div>
+<div class="pb"><div class="pf" id="pf" style="width:0%"></div></div>
+</div>
+<div class="qc" id="qc">
+<div class="qt2"><span class="qn" id="qn">Q 1</span><span class="dp beginner" id="dp">Beginner</span></div>
+<div class="qx" id="qx"></div>
+<div class="ops" id="ops"></div>
+<div class="ex" id="ex"><div class="el">WHY THIS IS CORRECT</div><p id="et"></p></div>
+</div>
+<div class="ft" id="ft">
+<button class="pvb" id="pvb" onclick="prev()" disabled>Prev</button>
+<button class="nxb" id="nxb" disabled onclick="nxt()">Next</button>
+</div>
+<div class="res" id="res">
+<div class="rp" id="rp">0%</div>
+<div class="rs" id="rsub">Chapter 6 complete</div>
+<div class="rg">
+<div class="rv"><div class="v" id="rc">0</div><div class="l">correct</div></div>
+<div class="rv"><div class="v" id="rw">0</div><div class="l">incorrect</div></div>
+<div class="rv"><div class="v">30</div><div class="l">questions</div></div>
+</div>
+<button class="ncb" onclick="location.href='chapter7.html'">Next chapter</button>
+<button class="rtb" onclick="restart()">Retry</button>
+<button class="tb2" onclick="sw('t')">Review tutorial</button>
+</div>
+</div>
+</div>
+</div>
+<script>
+const qs=[
+{d:'beginner',q:'In a segregated fund contract who are the three main parties?',opts:['The bank, the advisor and the client','The insurer, the contract holder (owner) and the annuitant (life insured)','The government, the insurer and the beneficiary','The advisor, the fund manager and the client'],a:1,exp:'Every seg fund contract involves: the Insurer who issues and backs the contract; the Contract Holder who deposits money and controls the contract; and the Annuitant whose life the insurance guarantees are based on. A beneficiary is also named to receive the death benefit.'},
+{d:'beginner',q:'Why must advisors verify a client identity before completing a seg fund application?',opts:['To check the client credit score before investing','To comply with anti-money laundering regulations requiring identity verification for all financial transactions above certain thresholds','To determine the client investment knowledge level','To confirm the client is a Canadian citizen'],a:1,exp:'AML and anti-terrorist financing regulations require advisors to verify client identity before completing financial transactions. Acceptable identification typically includes government-issued photo ID such as a passport or drivers licence. Failure to follow identity verification procedures is a regulatory offence.'},
+{d:'beginner',q:'What must an advisor deliver to a client at or before the time a seg fund contract is issued?',opts:['Only the application form','An information folder containing the contract summary, Fund Facts and key product information','A copy of the advisor licence only','A government-issued investment risk disclosure form'],a:1,exp:'Regulators require advisors to deliver an information folder to clients at or before contract issuance. This folder contains the contract key features, Fund Facts for each selected fund and other required disclosures. The goal is informed consent.'},
+{d:'beginner',q:'A client gives the advisor a cheque payable to the advisor personally for a seg fund deposit. What must the advisor do?',opts:['Accept it - it is easier for the client','Return the cheque - deposits must be payable to the insurance company not the advisor personally','Cash it and forward the funds to the insurer','Hold it for 5 business days before forwarding'],a:1,exp:'A cheque payable to the advisor personally is a major red flag and a regulatory violation. Client funds must be deposited directly to the insurer. Passing client funds through the advisor personal or business account is called commingling of funds and can result in licence suspension or revocation.'},
+{d:'beginner',q:'A client wants to change the beneficiary on their seg fund. What must the advisor confirm first?',opts:['The client credit score','Whether the current beneficiary designation is revocable or irrevocable - an irrevocable beneficiary cannot be changed without their written consent','Whether the client has children who must be named instead','Whether the insurance company approves of the new beneficiary'],a:1,exp:'Before processing any beneficiary change the advisor must confirm whether the existing designation is revocable (changeable freely by the owner) or irrevocable (requiring the current beneficiary written consent). Processing an unauthorized change on an irrevocable designation creates serious legal liability.'},
+{d:'beginner',q:'A client calls to request a fund switch within their seg fund contract. What should the advisor do before processing?',opts:['Process it immediately with no additional steps','Provide the client with Fund Facts for the new fund, confirm the switch aligns with the client updated needs and document the recommendation','Only notify the insurance company by phone','Process it and send a confirmation letter afterward'],a:1,exp:'A fund switch should not be processed without proper steps. The advisor must provide Fund Facts for the new fund, confirm the switch aligns with the client current needs, document the rationale and note any tax implications in non-registered accounts. Contract guarantees are not affected by fund switches.'},
+{d:'intermediate',q:'A client arrives with $50,000 in cash to deposit into a seg fund. What must the advisor do?',opts:['Accept and process the deposit - cash is legal tender','Report the transaction to FINTRAC as a large cash transaction over $10,000, verify the client identity and document the source of funds','Refuse the deposit entirely - cash cannot be used for seg fund investments','Accept the cash but delay the application by 30 days'],a:1,exp:'FINTRAC regulations require advisors to report any single cash transaction over $10,000 to FINTRAC within 15 days. This is mandatory not discretionary. The advisor must also verify the client identity and assess whether the transaction appears suspicious.'},
+{d:'intermediate',q:'A seg fund contract holder dies. What is the first step the advisor should take?',opts:['Immediately transfer the funds to the beneficiary without documentation','Notify the insurance company, obtain the required claim forms and gather necessary documentation including the death certificate and proof of beneficiary identity','Wait for the beneficiary to contact the insurance company directly','File a claim with CDIC on behalf of the beneficiary'],a:1,exp:'When a contract holder dies the advisor plays an important role in guiding the beneficiary: notify the insurer promptly, obtain the death benefit claim form, gather required documents (certified death certificate and beneficiary ID) and submit the complete package. The insurer then pays the beneficiary directly outside the estate bypassing probate.'},
+{d:'intermediate',q:'A seg fund contract matures. The market value is $95,000 and the 75% guarantee based on $110,000 in deposits is $82,500. What does the client receive?',opts:['$82,500 - the guarantee amount','$95,000 - the higher market value','$110,000 - the full deposit amount','$92,750 - an average of the two values'],a:1,exp:'At maturity the client always receives the greater of the market value or the guaranteed amount. Market value ($95,000) exceeds the guarantee ($82,500) so the client receives $95,000. The guarantee only kicks in when market value falls below it.'},
+{d:'intermediate',q:'A client surrenders their seg fund contract 3 years into a 10-year term. The market value is $42,000 and the DSC schedule shows a 4% fee. How much does the client receive and what else is lost?',opts:['$42,000 - full market value with no penalty','$40,320 - market value minus 4% DSC fee; they also forfeit the maturity guarantee','$37,500 - the 75% guarantee applies on early surrender','$44,000 - a bonus is paid for early surrender'],a:1,exp:'On surrender the client receives market value minus any DSC fee. 4% of $42,000 equals $1,680. Net proceeds equal $40,320. Critically surrendering before maturity also forfeits the maturity guarantee.'},
+{d:'intermediate',q:'A client has a seg fund with $100,000 in deposits and a 75% guarantee. They withdraw $20,000 (20% of market value). How does this affect the maturity guarantee?',opts:['The guarantee stays at $75,000','The guarantee is reduced proportionally - the deposit base is reduced by 20% so the new guarantee is $60,000','The guarantee is eliminated entirely after any withdrawal','The guarantee increases to compensate for the withdrawal'],a:1,exp:'Withdrawals reduce the guarantee base proportionally not dollar-for-dollar. 20% withdrawal reduces the $100,000 deposit base by 20% to $80,000. New maturity guarantee equals $80,000 times 75% equals $60,000.'},
+{d:'intermediate',q:'An attorney under a Power of Attorney wants to make a withdrawal from a client seg fund. What must the advisor verify?',opts:['Nothing - any person claiming to be an attorney can make requests','The POA document is valid, currently in effect, covers financial matters and has not been revoked - and the advisor must keep a certified copy on file','Only that the attorney has a government-issued ID','That the client approves each transaction in writing'],a:1,exp:'Before acting on POA instructions advisors must verify: the POA document is legally valid; it covers the specific type of transaction (financial or property); it is an enduring POA still in effect; and it has not been revoked. A certified copy of the POA must be kept in the client file.'},
+{d:'intermediate',q:'A client requests a guarantee reset on their seg fund. What must the advisor do beyond processing the request?',opts:['Process it immediately with no additional steps','Confirm the current market value, explain that the reset extends the maturity date, document the client understanding of these implications and keep a record','Only notify the insurance company by phone','Obtain approval from a senior compliance officer before every reset'],a:1,exp:'A reset has significant implications: the maturity date resets (extending the lock-in period) and the guarantee base adjusts to the current value. Advisors must ensure the client understands both benefits (higher guarantee) and trade-offs (extended maturity). This conversation and the client acknowledgment must be documented.'},
+{d:'intermediate',q:'How do annual seg fund allocations affect a contract holder adjusted cost base (ACB) in a non-registered account?',opts:['Allocations have no effect on ACB','Allocations that are taxed in the year received increase the ACB by the amount included in income preventing double taxation at maturity or surrender','Allocations decrease the ACB creating a larger taxable gain at maturity','ACB tracking is not required for seg fund contracts'],a:1,exp:'When a client is taxed on seg fund allocations those amounts are added to the contract ACB. This prevents double taxation. If $5,000 in income was allocated and taxed this year the ACB increases by $5,000 so it will not be taxed again at maturity or surrender.'},
+{d:'intermediate',q:'An insurer notifies an advisor that a specific fund is being closed and investors will be switched to a replacement fund. What is the advisor obligation?',opts:['Nothing - the carrier handles all communication directly with clients','Notify affected clients proactively, explain the change and its implications, assess whether the replacement fund still suits each client profile and document discussions and any resulting recommendations','Wait for clients to inquire before taking action','Simply note the change in the file with no client contact required'],a:1,exp:'When an insurer makes material changes to a product advisors have an obligation to proactively communicate with affected clients. The replacement fund may have a different risk profile or higher MER. Advisors must assess whether the new fund suits each client individual profile, discuss alternatives if needed and document all interactions.'},
+{d:'intermediate',q:'A contract holder dies naming their estate as beneficiary on a seg fund. What are the consequences?',opts:['No difference - all beneficiary designations produce the same outcome','The death benefit flows into the estate - subject to probate fees, creditor claims, delays and public record - all avoided when a named beneficiary receives funds directly','The estate receives a tax deduction on the death benefit','The insurance company pays a bonus when the estate is the beneficiary'],a:1,exp:'Naming the estate as beneficiary eliminates all key advantages of a seg fund insurance structure. The death benefit enters the estate and is subject to probate fees, estate creditor claims, delays and public disclosure. A named individual beneficiary receives funds directly - faster, privately, creditor-protected and probate-free.'},
+{d:'advanced',q:'A client holds a seg fund and the maturity guarantee exceeds market value at maturity. A top-up is paid by the insurer. How is this taxed in a non-registered contract?',opts:['It is tax-free - it is an insurance payment','The top-up is treated as a capital gain - 50% is included in income for the year received','It is fully taxable as ordinary income','It is reported as a dividend and receives the dividend tax credit'],a:1,exp:'The maturity guarantee top-up (the amount the insurer pays above market value) is treated as a capital gain in a non-registered contract. Only 50% of the top-up is included in taxable income. In a registered contract top-ups are taxable as income.'},
+{d:'advanced',q:'A seg fund contract renewal is due for a client who is now 10 years older. What obligations does the advisor have?',opts:['Simply process the renewal - nothing else is required','Update the KYC file to reflect the client current situation, assess whether renewal is still suitable given age and changed circumstances, disclose the new maturity date and guarantee terms, deliver updated Fund Facts and document the recommendation','Obtain new government identification only','Renew automatically unless the client objects in writing'],a:1,exp:'A contract renewal is treated as a new recommendation event - not a passive continuation. The advisor must update KYC (the client is 10 years older with potentially changed health, income and goals), assess suitability of renewing vs alternative products, deliver updated Fund Facts, disclose the new maturity date and document the full recommendation rationale.'},
+{d:'advanced',q:'A client surrenders a registered seg fund contract early. What are the tax consequences?',opts:['No tax - registered seg funds can always be surrendered tax-free','The full surrender value is added to the client income in the year of surrender and taxed at their marginal rate; the insurer withholds a portion as withholding tax','Only 50% of the gain is included as a capital gain','Tax is deferred until the following year'],a:1,exp:'Surrendering a registered seg fund contract triggers immediate and full taxation. The entire surrender value is treated as income in the year received and added to taxable income. The insurer applies withholding tax. There is no capital gains treatment for registered plan proceeds.'},
+{d:'advanced',q:'A client beneficiary dies unexpectedly before the client does. The client has not updated their beneficiary designation. What happens to the death benefit when the client subsequently dies?',opts:['The death benefit is forfeited - no beneficiary means no payment','The death benefit flows into the client estate and is subject to probate fees and creditor claims','The insurance company automatically names the closest living relative as beneficiary','The death benefit is distributed equally among all living family members'],a:1,exp:'When a named beneficiary predeceases the contract holder and no contingent beneficiary has been named the death benefit defaults to the estate. This means the proceeds lose all insurance advantages. They become subject to probate fees, estate creditor claims and delays. This is why advisors must review beneficiary designations at annual reviews and confirm contingent beneficiaries are also named.'},
+{d:'advanced',q:'A client seg fund ACB is $95,000 and they receive $112,000 at maturity. What is the tax treatment in a non-registered contract?',opts:['No tax - maturity proceeds from seg funds are always tax-free','A capital gain of $17,000 is realized; 50% ($8,500) is included in the client taxable income for the year of maturity','The full $112,000 is taxable as ordinary income','A capital gain of $17,000 is fully taxable at the marginal rate'],a:1,exp:'When a non-registered seg fund contract matures the taxable event is a capital gain equal to the difference between the proceeds received and the contract ACB. $112,000 minus $95,000 equals $17,000 capital gain. With a 50% inclusion rate only $8,500 is added to taxable income.'},
+{d:'advanced',q:'During an annual review an advisor discovers a client seg fund has consistently underperformed its benchmark over 5 years and a similar fund from the same insurer has outperformed. What must the advisor do?',opts:['Do nothing - past performance is not indicative of future results','Proactively discuss the performance differential with the client, present the alternative fund Facts, assess whether a switch is in the client best interest and document the discussion and recommendation','Automatically switch the client to the better-performing fund without consultation','Only mention the performance differential if the client asks about it'],a:1,exp:'Ongoing product monitoring is an advisor obligation. Discovering consistent significant underperformance relative to a comparable alternative requires the advisor to bring this to the client attention proactively. This includes presenting Fund Facts for the alternative fund, assessing suitability of a switch, considering any tax implications or switching fees and documenting the full discussion and the client decision.'},
+{d:'beginner',q:'What is the purpose of the seg fund application form?',opts:['To market the product to potential new clients','To formally establish the contract - capturing the owner, annuitant, beneficiary designations, fund selections and initial deposit details','To satisfy annual regulatory reporting requirements only','To apply for a government investment subsidy'],a:1,exp:'The application form is the legal foundation of the contract. It captures: who owns the contract, whose life is insured, who the beneficiary is, which funds are selected, what sales charge option applies and how much is being deposited. Errors on the application can create serious problems later.'},
+{d:'beginner',q:'What is the purpose of the annual review for a seg fund client?',opts:['To generate additional commissions by replacing existing products','To assess whether existing products still meet the client needs, update KYC and make adjustments if circumstances have changed','To satisfy a government-mandated product replacement cycle','To review the advisor performance not the client portfolio'],a:1,exp:'The annual review is a structured check-in where the advisor reviews the client current situation against their existing products. Life changes can affect whether a seg fund still fits. The advisor updates KYC, reviews performance, checks beneficiary designations and discusses any needed adjustments.'},
+{d:'intermediate',q:'A registered seg fund application designates the account type as an RRSP. How does this differ from a non-registered application?',opts:['There is no difference - all seg fund applications are identical','The registered application must designate the account type, include CRA-required information and the owner must be the annuitant - beneficiary designations must also comply with registered plan rules','Registered applications require a medical examination','Registered seg funds are only available through banks, not insurance companies'],a:1,exp:'Registered seg fund contracts (RRSP, RRIF, TFSA, RESP) require additional information: the registered plan type, the plan carrier and CRA-required details. Critically in registered contracts the owner must be the annuitant. The tax treatment of deposits, growth and withdrawals also changes based on registered status.'},
+{d:'advanced',q:'A client POA is presented to an advisor wanting to surrender the client seg fund contract. The POA document says it covers property decisions but specifically states it does NOT cover insurance products. What must the advisor do?',opts:['Process the surrender - property POA generally covers all financial assets','Decline to process the surrender - the POA specifically excludes insurance products which includes segregated fund contracts. Advise the attorney to seek updated POA documentation','Process the surrender but notify the client afterward','Ask the attorney to sign an indemnity agreement before processing'],a:1,exp:'An advisor must read the POA document carefully and follow its specific terms. If the POA explicitly excludes insurance products then the advisor cannot act on the attorney instructions with respect to the seg fund contract. Processing the surrender against the terms of the POA would expose the advisor and the insurance company to serious legal liability.'},
+{d:'beginner',q:'When a seg fund contract reaches its maturity date what options does the contract holder have?',opts:['The contract automatically terminates and all funds are returned as cash','The client may receive the maturity benefit and choose to renew the contract, purchase an annuity or take the proceeds as a lump sum','The contract automatically continues with no action required','The insurance company decides the outcome without client input'],a:1,exp:'At maturity the contract holder receives the greater of the market value or the guaranteed amount. From there the client has choices: renew the contract for a new term (restarting the maturity clock), use the proceeds to purchase an annuity or take the lump sum. Advisors must be proactive about maturity dates.'}
+];
+const isAdmin=localStorage.getItem('passllqp_admin')==='true';
+if(!isAdmin){document.getElementById('mc').style.display='none';document.getElementById('lk').style.display='block'}
+function sw(t){
+  document.getElementById('tvT').classList.toggle('show',t==='t');
+  document.getElementById('tvQ').classList.toggle('show',t==='q');
+  document.getElementById('tT').classList.toggle('on',t==='t');
+  document.getElementById('tQ').classList.toggle('on',t==='q');
+  if(t==='q'&&cur===0&&as[0]===null)render();
+}
+let cur=0,as=new Array(qs.length).fill(null),ss=new Array(qs.length).fill(null);
+const sh=[...qs].sort(()=>Math.random()-0.5);
+function render(){
+  const q=sh[cur],tot=sh.length;
+  document.getElementById('qn').textContent='Q '+(cur+1)+' of '+tot;
+  document.getElementById('pf').style.width=((cur/tot)*100)+'%';
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  document.getElementById('et').textContent=q.exp;
+  const ex=document.getElementById('ex');
+  as[cur]!==null?ex.classList.add('show'):ex.classList.remove('show');
+  const c=document.getElementById('ops');c.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');d.className='op';
+    if(as[cur]!==null){d.classList.add('dis');if(i===q.a)d.classList.add('ok');if(i===ss[cur]&&ss[cur]!==q.a)d.classList.add('no');}
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(as[cur]===null)d.onclick=()=>sel(d,i===q.a,i,q.a);
+    c.appendChild(d);
+  });
+  const nb=document.getElementById('nxb');
+  nb.disabled=(as[cur]===null);
+  nb.textContent=cur===sh.length-1?'Finish':'Next';
+  document.getElementById('pvb').disabled=(cur===0);
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=a>0?Math.round((s/a)*100)+'%':'--';
+}
+function sel(el,ok,ch,co){
+  document.querySelectorAll('.op').forEach((o,i)=>{o.onclick=null;o.classList.add('dis');if(i===co)o.classList.add('ok');});
+  if(!ok)el.classList.add('no');
+  document.getElementById('ex').classList.add('show');
+  document.getElementById('nxb').disabled=false;
+  as[cur]=ok;ss[cur]=ch;
+  let s=0,a=0;as.forEach(v=>{if(v!==null){a++;if(v)s++;}});
+  document.getElementById('sc').textContent=s;
+  document.getElementById('pc').textContent=Math.round((s/a)*100)+'%';
+}
+function nxt(){cur++;if(cur>=sh.length){done();return;}render();}
+function prev(){if(cur>0){cur--;render();}}
+function done(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const s=as.filter(v=>v===true).length;
+  const p=Math.round((s/sh.length)*100);
+  document.getElementById('rp').textContent=p+'%';
+  document.getElementById('rsub').textContent=p>=60?'You passed!':'Keep practising.';
+  document.getElementById('rc').textContent=s;
+  document.getElementById('rw').textContent=sh.length-s;
+  document.getElementById('res').classList.add('show');
+}
+function restart(){
+  cur=0;as=new Array(qs.length).fill(null);ss=new Array(qs.length).fill(null);
+  document.getElementById('qc').style.display='block';
+  document.getElementById('ft').style.display='flex';
+  document.getElementById('res').classList.remove('show');
+  render();
+}
+if(isAdmin)render();
+</script>
+</body>
+</html>

@@ -1,4 +1,4 @@
-# PassLLQP — Alberta LLQP Exam Prep
+# PassLLQP — LLQP Exam Prep
 
 ## Files
 - `index.html` — Landing page (home)

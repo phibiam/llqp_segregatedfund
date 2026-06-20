@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>PassLLQP — Exam Prep</title>
+  <title>PassLLQP — Alberta Exam Prep</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
   <style>
@@ -101,7 +101,7 @@
 </nav>
 
 <div class="hero">
-  <div class="hero-badge">LLQP Exam Prep</div>
+  <div class="hero-badge">Alberta LLQP Exam Prep</div>
   <h1>Study smarter.<br><em>Pass faster.</em></h1>
   <p>Plain-language tutorials, chapter quizzes, and full mock exams — built for busy people who need to pass, not just study.</p>
   <div class="hero-actions">
@@ -128,9 +128,9 @@
 
   <!-- MODULE TABS -->
   <div class="module-tabs">
-    <div class="mod-tab active" onclick="showModule('seg')">📊 Seg Funds & Annuities</div>
+    <div class="mod-tab active" id="tabSeg" onclick="showModule('seg')">📊 Seg Funds & Annuities</div>
+    <div class="mod-tab" id="tabLife" onclick="showModule('life')">🏥 Life Insurance</div>
     <div class="mod-tab coming" title="Coming soon">⚖️ Ethics (coming soon)</div>
-    <div class="mod-tab coming" title="Coming soon">🏥 Life Insurance (coming soon)</div>
     <div class="mod-tab coming" title="Coming soon">🩺 Accident & Sickness (coming soon)</div>
   </div>
 
@@ -206,7 +206,7 @@
 
 <footer>
   <div class="logo">Pass<span>LLQP</span></div>
-  <p>LLQP exam preparation · Built for Canadian financial services professionals</p>
+  <p>Alberta LLQP exam preparation · Built for Canadian financial services professionals</p>
   <p style="margin-top:6px;">© 2025 PassLLQP · All rights reserved</p>
 </footer>
 
@@ -225,10 +225,40 @@ const segChapters = [
   { num:'Ch.8', title:'Group Retirement Plans', sub:'Tutorial + 30 questions', free:false, url:'chapter8.html' },
 ];
 
+const lifeChapters = [
+  { num:'Ch.1', title:'Introduction to Life Insurance', sub:'Tutorial + 30 questions', free:true, url:'life-chapter1.html' },
+  { num:'Ch.2', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.3', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.4', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.5', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.6', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.7', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.8', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.9', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.10', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.11', title:'Coming soon', sub:'', free:false, comingSoon:true },
+  { num:'Ch.12', title:'Coming soon', sub:'', free:false, comingSoon:true },
+];
+
+let currentModule = 'seg';
+
 function renderChapters(chapters){
   const grid = document.getElementById('chaptersGrid');
   grid.innerHTML = '';
   chapters.forEach(ch => {
+    if(ch.comingSoon){
+      const div = document.createElement('div');
+      div.className = 'ch-card';
+      div.style.opacity = '0.45';
+      div.innerHTML = `
+        <div class="ch-num">${ch.num}</div>
+        <div class="ch-info">
+          <h4>${ch.title}</h4>
+          <p>Not yet available</p>
+        </div>`;
+      grid.appendChild(div);
+      return;
+    }
     const unlocked = ch.free || isAdmin;
     const div = document.createElement('div');
     div.className = 'ch-card' + (unlocked ? ' clickable' : ' locked') + (ch.free ? ' featured' : '');
@@ -244,10 +274,14 @@ function renderChapters(chapters){
 }
 
 function showModule(mod){
-  renderChapters(segChapters);
+  currentModule = mod;
+  document.getElementById('tabSeg').classList.toggle('active', mod === 'seg');
+  document.getElementById('tabLife').classList.toggle('active', mod === 'life');
+  if(mod === 'seg') renderChapters(segChapters);
+  if(mod === 'life') renderChapters(lifeChapters);
 }
 
-renderChapters(segChapters);
+showModule('seg');
 </script>
 </body>
 </html>

@@ -130,13 +130,20 @@
   <div class="module-tabs">
     <div class="mod-tab active" id="tabSeg" onclick="showModule('seg')">📊 Seg Funds & Annuities</div>
     <div class="mod-tab" id="tabLife" onclick="showModule('life')">🏥 Life Insurance</div>
+    <div class="mod-tab" id="tabAs" onclick="showModule('as')">🩺 Accident & Sickness</div>
     <div class="mod-tab coming" title="Coming soon">⚖️ Ethics (coming soon)</div>
-    <div class="mod-tab coming" title="Coming soon">🩺 Accident & Sickness (coming soon)</div>
   </div>
 
   <!-- SEG FUNDS MODULE -->
   <div id="modSeg">
     <div class="chapters-grid" id="chaptersGrid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- A&S MODULE -->
+  <div id="modAs" style="display:none">
+    <div class="chapters-grid" id="chaptersGridAs">
       <!-- Rendered by JS -->
     </div>
   </div>
@@ -154,6 +161,13 @@
       <div style="font-size:12px;color:var(--muted);">60 questions · 90 minutes · 5 per chapter · chapter breakdown at end</div>
     </div>
     <button class="btn-primary" onclick="location.href='mock-life.html'">Start mock exam →</button>
+  </div>
+  <div style="margin-top:10px; padding:16px; background:var(--white); border:1px solid var(--border); border-radius:var(--radius); display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+    <div>
+      <div style="font-size:14px;font-weight:600;color:var(--text);margin-bottom:3px;">📋 Mock exam — Accident & Sickness</div>
+      <div style="font-size:12px;color:var(--muted);">40 questions · 60 minutes · 5 per chapter · chapter breakdown at end</div>
+    </div>
+    <button class="btn-primary" onclick="location.href='mock-as.html'">Start mock exam →</button>
   </div>
 </div>
 
@@ -232,6 +246,17 @@ const segChapters = [
   { num:'Ch.8', title:'Group Retirement Plans', sub:'Tutorial + 30 questions', free:false, url:'chapter8.html' },
 ];
 
+const asChapters = [
+  { num:'Ch.1', title:'Financial Protection by A&S Insurance', sub:'Tutorial + 30 questions', free:true, url:'as-chapter1.html' },
+  { num:'Ch.2', title:'Insurance to Protect Income', sub:'Tutorial + 30 questions', free:false, url:'as-chapter2.html', comingSoon:true },
+  { num:'Ch.3', title:'Insurance to Protect Assets', sub:'Tutorial + 30 questions', free:false, url:'as-chapter3.html', comingSoon:true },
+  { num:'Ch.4', title:'Insurance to Protect Savings', sub:'Tutorial + 30 questions', free:false, url:'as-chapter4.html', comingSoon:true },
+  { num:'Ch.5', title:'Insurance to Protect Businesses', sub:'Tutorial + 30 questions', free:false, url:'as-chapter5.html', comingSoon:true },
+  { num:'Ch.6', title:'Client Profile', sub:'Tutorial + 30 questions', free:false, url:'as-chapter6.html', comingSoon:true },
+  { num:'Ch.7', title:'Recommendation, Contract & Service', sub:'Tutorial + 30 questions', free:false, url:'as-chapter7.html', comingSoon:true },
+  { num:'Ch.8', title:'Group Plan Specifics', sub:'Tutorial + 30 questions', free:false, url:'as-chapter8.html', comingSoon:true },
+];
+
 const lifeChapters = [
   { num:'Ch.1', title:'Introduction to Life Insurance', sub:'Tutorial + 30 questions', free:true, url:'life-chapter1.html' },
   { num:'Ch.2', title:'Term Life Insurance', sub:'Tutorial + 30 questions', free:false, url:'life-chapter2.html' },
@@ -280,12 +305,37 @@ function renderChapters(chapters){
   });
 }
 
+function renderChaptersTo(chapters, gridId){
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = '';
+  chapters.forEach(ch => {
+    if(ch.comingSoon){
+      const div = document.createElement('div');
+      div.className = 'ch-card';
+      div.style.opacity = '0.45';
+      div.innerHTML = `<div class="ch-num">${ch.num}</div><div class="ch-info"><h4>${ch.title}</h4><p>Coming soon</p></div>`;
+      grid.appendChild(div);
+      return;
+    }
+    const unlocked = ch.free || isAdmin;
+    const div = document.createElement('div');
+    div.className = 'ch-card' + (unlocked ? ' clickable' : ' locked') + (ch.free ? ' featured' : '');
+    if(unlocked) div.onclick = () => location.href = ch.url;
+    div.innerHTML = `<div class="ch-num">${ch.num}</div><div class="ch-info"><h4>${ch.title}</h4><p>${ch.sub} · ${unlocked ? (ch.free ? '<span style="color:var(--green);font-weight:600;">Free</span>' : '<span style="color:var(--green);font-weight:600;">Unlocked</span>') : '<span class="lock">🔒 Unlock</span>'}</p></div>`;
+    grid.appendChild(div);
+  });
+}
+
 function showModule(mod){
   currentModule = mod;
   document.getElementById('tabSeg').classList.toggle('active', mod === 'seg');
   document.getElementById('tabLife').classList.toggle('active', mod === 'life');
+  document.getElementById('tabAs').classList.toggle('active', mod === 'as');
+  document.getElementById('modSeg').style.display = mod === 'seg' ? '' : 'none';
+  document.getElementById('modAs').style.display = mod === 'as' ? '' : 'none';
   if(mod === 'seg') renderChapters(segChapters);
   if(mod === 'life') renderChapters(lifeChapters);
+  if(mod === 'as') renderChaptersTo(asChapters, 'chaptersGridAs');
 }
 
 showModule('seg');

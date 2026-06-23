@@ -136,7 +136,14 @@
 
   <!-- SEG FUNDS MODULE -->
   <div id="modSeg">
-    <div class="chapters-grid" id="chaptersGrid">
+    <div class="chapters-grid" id="chaptersGridSeg">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <!-- LIFE INSURANCE MODULE -->
+  <div id="modLife" style="display:none">
+    <div class="chapters-grid" id="chaptersGridLife">
       <!-- Rendered by JS -->
     </div>
   </div>
@@ -274,37 +281,6 @@ const lifeChapters = [
 
 let currentModule = 'seg';
 
-function renderChapters(chapters){
-  const grid = document.getElementById('chaptersGrid');
-  grid.innerHTML = '';
-  chapters.forEach(ch => {
-    if(ch.comingSoon){
-      const div = document.createElement('div');
-      div.className = 'ch-card';
-      div.style.opacity = '0.45';
-      div.innerHTML = `
-        <div class="ch-num">${ch.num}</div>
-        <div class="ch-info">
-          <h4>${ch.title}</h4>
-          <p>Not yet available</p>
-        </div>`;
-      grid.appendChild(div);
-      return;
-    }
-    const unlocked = ch.free || isAdmin;
-    const div = document.createElement('div');
-    div.className = 'ch-card' + (unlocked ? ' clickable' : ' locked') + (ch.free ? ' featured' : '');
-    if(unlocked) div.onclick = () => location.href = ch.url;
-    div.innerHTML = `
-      <div class="ch-num ${ch.free ? '' : ''}">${ch.num}</div>
-      <div class="ch-info">
-        <h4>${ch.title}</h4>
-        <p>${ch.sub} · ${unlocked ? (ch.free ? '<span style="color:var(--green);font-weight:600;">Free</span>' : '<span style="color:var(--green);font-weight:600;">Unlocked</span>') : '<span class="lock">🔒 Unlock</span>'}</p>
-      </div>`;
-    grid.appendChild(div);
-  });
-}
-
 function renderChaptersTo(chapters, gridId){
   const grid = document.getElementById(gridId);
   grid.innerHTML = '';
@@ -331,11 +307,12 @@ function showModule(mod){
   document.getElementById('tabSeg').classList.toggle('active', mod === 'seg');
   document.getElementById('tabLife').classList.toggle('active', mod === 'life');
   document.getElementById('tabAs').classList.toggle('active', mod === 'as');
-  document.getElementById('modSeg').style.display = mod === 'seg' ? '' : 'none';
-  document.getElementById('modAs').style.display = mod === 'as' ? '' : 'none';
-  if(mod === 'seg') renderChapters(segChapters);
-  if(mod === 'life') renderChapters(lifeChapters);
-  if(mod === 'as') renderChaptersTo(asChapters, 'chaptersGridAs');
+  document.getElementById('modSeg').style.display  = mod === 'seg'  ? '' : 'none';
+  document.getElementById('modLife').style.display = mod === 'life' ? '' : 'none';
+  document.getElementById('modAs').style.display   = mod === 'as'   ? '' : 'none';
+  if(mod === 'seg')  renderChaptersTo(segChapters,  'chaptersGridSeg');
+  if(mod === 'life') renderChaptersTo(lifeChapters, 'chaptersGridLife');
+  if(mod === 'as')   renderChaptersTo(asChapters,   'chaptersGridAs');
 }
 
 showModule('seg');

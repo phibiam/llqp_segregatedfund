@@ -90,7 +90,7 @@
 <body>
 <nav>
   <div class="nav-logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
-  <div id="timerDisplay" style="display:none" class="timer-box">⏱ <span id="timerVal">90:00</span></div>
+  <div id="timerDisplay" style="display:none" class="timer-box">⏱ <span id="timerVal">75:00</span></div>
   <div class="nav-back" onclick="location.href='index.html'">← Home</div>
 </nav>
 <div class="wrap">
@@ -98,10 +98,10 @@
   <div class="start-card" id="startCard">
     <div class="module-badge">Life Insurance</div>
     <h1>Mock Exam</h1>
-    <p>60 questions across all 12 Life Insurance chapters, drawn randomly each attempt.</p>
+    <p>35 questions across all 12 Life Insurance chapters, drawn randomly each attempt.</p>
     <div class="info-row">
-      <div class="info-box"><div class="iv">60</div><div class="il">Questions</div></div>
-      <div class="info-box"><div class="iv">90</div><div class="il">Minutes</div></div>
+      <div class="info-box"><div class="iv">35</div><div class="il">Questions</div></div>
+      <div class="info-box"><div class="iv">75</div><div class="il">Minutes</div></div>
       <div class="info-box"><div class="iv">60%</div><div class="il">Pass mark</div></div>
     </div>
     <div class="start-notes">
@@ -178,7 +178,7 @@ const CHAPTERS=[
   {file:'life-chapter11.html',var:'qs',ch:'L11',label:'Ch.11 — Recommending'},
   {file:'life-chapter12.html',var:'qs',ch:'L12',label:'Ch.12 — Ongoing Service'},
 ];
-const TOTAL=60,PER_CH=5,MINS=90;
+const TOTAL=35,PER_CH=5,MINS=75;
 let allPools={},examQ=[],current=0,score=0,answered=0,timerInt=null,secondsLeft=MINS*60,startTime=null,chScores={};
 
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}

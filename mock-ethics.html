@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@700&display=swap" rel="stylesheet">
   <style>
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    :root{--blue:#0E6E79;--blue-light:#E5F4F6;--green:#0F6E56;--red:#993C1D;--text:#0F1117;--muted:#6B7280;--border:#E5E7EB;--bg:#F9FAFB;--white:#fff;--radius:12px}
+    :root{--blue:#5B21B6;--blue-light:#EDE9FE;--green:#0F6E56;--red:#993C1D;--text:#0F1117;--muted:#6B7280;--border:#E5E7EB;--bg:#F9FAFB;--white:#fff;--radius:12px}
     body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
     nav{background:var(--white);border-bottom:1px solid var(--border);padding:0 20px;height:56px;display:flex;align-items:center;justify-content:space-between}
     .nav-logo{font-family:'Sora',sans-serif;font-size:17px;font-weight:700;cursor:pointer}
@@ -90,7 +90,7 @@
 <body>
 <nav>
   <div class="nav-logo" onclick="location.href='index.html'">Pass<span>LLQP</span></div>
-  <div id="timerDisplay" style="display:none" class="timer-box">⏱ <span id="timerVal">60:00</span></div>
+  <div id="timerDisplay" style="display:none" class="timer-box">⏱ <span id="timerVal">75:00</span></div>
   <div class="nav-back" onclick="location.href='index.html'">← Home</div>
 </nav>
 <div class="wrap">
@@ -98,16 +98,16 @@
   <div class="start-card" id="startCard">
     <div class="module-badge">⚖️ Ethics &amp; Professional Practice</div>
     <h1>Mock Exam</h1>
-    <p>20 questions across all 4 Ethics chapters, drawn randomly each attempt.</p>
+    <p>25 questions drawn randomly across all 4 Ethics &amp; Professional Practice chapters.</p>
     <div class="info-row">
-      <div class="info-box"><div class="iv">20</div><div class="il">Questions</div></div>
-      <div class="info-box"><div class="iv">30</div><div class="il">Minutes</div></div>
+      <div class="info-box"><div class="iv">25</div><div class="il">Questions</div></div>
+      <div class="info-box"><div class="iv">75</div><div class="il">Minutes</div></div>
       <div class="info-box"><div class="iv">60%</div><div class="il">Pass mark</div></div>
     </div>
     <div class="start-notes">
       <strong>How it works:</strong><br>
-      · 5 questions per chapter × 4 chapters = 20 questions<br>
-      · Questions drawn randomly from each chapter's 100-question pool<br>
+      · 25 questions drawn randomly across all 4 chapters<br>
+      · Questions drawn from each chapter's 100-question pool<br>
       · Mix of Beginner, Intermediate and Advanced<br>
       · Correct answer + explanation shown after each question<br>
       · Chapter-by-chapter score breakdown on results screen
@@ -118,7 +118,7 @@
 
   <div id="examWrap">
     <div class="q-header">
-      <span class="q-num-label" id="qNum">QUESTION 1 OF 20</span>
+      <span class="q-num-label" id="qNum">QUESTION 1 OF 25</span>
       <span class="ch-tag" id="chTag"></span>
     </div>
     <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
@@ -170,7 +170,7 @@ const CHAPTERS=[
   {file:'ethics-chapter3.html',var:'qs',ch:'E3',label:'Ch.3 — Claims'},
   {file:'ethics-chapter4.html',var:'qs',ch:'E4',label:'Ch.4 — Agent Rules'},
 ];
-const TOTAL=20,PER_CH=5,MINS=30;
+const TOTAL=25,MINS=75;
 let allPools={},examQ=[],current=0,score=0,answered=0,timerInt=null,secondsLeft=MINS*60,startTime=null,chScores={};
 
 function shuffle(a){a=[...a];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
@@ -203,9 +203,10 @@ async function loadAll(){
 }
 
 function selectQ(){
-  const sel=[];
-  CHAPTERS.forEach(ch=>{sel.push(...shuffle(allPools[ch.ch]||[]).slice(0,PER_CH));});
-  return shuffle(sel).map(q=>shuffleOpts(q));
+  // Merge all pools, shuffle, draw TOTAL=25, then shuffle opts per question
+  const merged=[];
+  CHAPTERS.forEach(ch=>merged.push(...(allPools[ch.ch]||[])));
+  return shuffle(merged).slice(0,TOTAL).map(q=>shuffleOpts(q));
 }
 
 function startExam(){

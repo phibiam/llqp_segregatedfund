@@ -131,7 +131,7 @@
     <div class="mod-tab active" id="tabSeg" onclick="showModule('seg')">📊 Seg Funds & Annuities</div>
     <div class="mod-tab" id="tabLife" onclick="showModule('life')">🏥 Life Insurance</div>
     <div class="mod-tab" id="tabAs" onclick="showModule('as')">🩺 Accident & Sickness</div>
-    <div class="mod-tab coming" title="Coming soon">⚖️ Ethics (coming soon)</div>
+    <div class="mod-tab" id="tabEth" onclick="showModule('eth')">⚖️ Ethics & Prof. Practice</div>
   </div>
 
   <!-- SEG FUNDS MODULE -->
@@ -151,6 +151,12 @@
   <!-- A&S MODULE -->
   <div id="modAs" style="display:none">
     <div class="chapters-grid" id="chaptersGridAs">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+
+  <div id="modEth" style="display:none">
+    <div class="chapters-grid" id="chaptersGridEth">
       <!-- Rendered by JS -->
     </div>
   </div>
@@ -264,6 +270,13 @@ const asChapters = [
   { num:'Ch.8', title:'Group Plan Specifics', sub:'Tutorial + 30 questions', free:false, url:'as-chapter8.html' },
 ];
 
+const ethChapters = [
+  { num:'Ch.1', title:'Legal Framework Governing Life Insurance', sub:'Tutorial + 30 questions', free:true, url:'ethics-chapter1.html' },
+  { num:'Ch.2', title:'Insurance Policy Provisions', sub:'Tutorial + 30 questions', free:false, url:'ethics-chapter2.html' },
+  { num:'Ch.3', title:'Life Insurance, A\u0026S and Annuity Claims', sub:'Tutorial + 30 questions', free:false, url:'ethics-chapter3.html' },
+  { num:'Ch.4', title:'Rules Governing Life Insurance Agents', sub:'Tutorial + 30 questions', free:false, url:'ethics-chapter4.html' },
+];
+
 const lifeChapters = [
   { num:'Ch.1', title:'Introduction to Life Insurance', sub:'Tutorial + 30 questions', free:true, url:'life-chapter1.html' },
   { num:'Ch.2', title:'Term Life Insurance', sub:'Tutorial + 30 questions', free:false, url:'life-chapter2.html' },
@@ -307,12 +320,15 @@ function showModule(mod){
   document.getElementById('tabSeg').classList.toggle('active', mod === 'seg');
   document.getElementById('tabLife').classList.toggle('active', mod === 'life');
   document.getElementById('tabAs').classList.toggle('active', mod === 'as');
+  document.getElementById('tabEth').classList.toggle('active', mod === 'eth');
   document.getElementById('modSeg').style.display  = mod === 'seg'  ? '' : 'none';
   document.getElementById('modLife').style.display = mod === 'life' ? '' : 'none';
   document.getElementById('modAs').style.display   = mod === 'as'   ? '' : 'none';
+  document.getElementById('modEth').style.display  = mod === 'eth'  ? '' : 'none';
   if(mod === 'seg')  renderChaptersTo(segChapters,  'chaptersGridSeg');
   if(mod === 'life') renderChaptersTo(lifeChapters, 'chaptersGridLife');
   if(mod === 'as')   renderChaptersTo(asChapters,   'chaptersGridAs');
+  if(mod === 'eth')  renderChaptersTo(ethChapters,  'chaptersGridEth');
 }
 
 showModule('seg');

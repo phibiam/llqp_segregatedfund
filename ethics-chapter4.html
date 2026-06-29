@@ -309,13 +309,79 @@ const qs=[
 ];
 const N=30;let pool=[],drawn=[],idx=0,corr=0,ans=[];
 function sw(t){document.getElementById('tvT').classList.toggle('show',t==='t');document.getElementById('tvQ').classList.toggle('show',t==='q');if(t==='q'&&pool.length===0)start();}
-function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
-function start(){pool=shuffle([...qs]);drawn=pool.slice(0,N);idx=0;corr=0;ans=Array(N).fill(null);document.getElementById('res').classList.remove('show');document.getElementById('qc').style.display='';document.getElementById('ft').style.display='';render();}
-function render(){const q=drawn[idx];document.getElementById('qn').textContent='Q '+(idx+1);document.getElementById('pc').textContent=N;document.getElementById('pf').style.width=((idx/N)*100)+'%';document.getElementById('sc').textContent=corr;const dp=document.getElementById('dp');dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);dp.className='dp '+q.d;document.getElementById('qx').textContent=q.q;const ex=document.getElementById('ex');ex.classList.remove('show');document.getElementById('et').textContent=q.exp;const ops=document.getElementById('ops');ops.innerHTML='';q.opts.forEach((o,i)=>{const d=document.createElement('div');d.className='op'+(ans[idx]!==null?' dis':'');d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';if(ans[idx]!==null){if(i===q.a)d.classList.add('ok');else if(i===ans[idx])d.classList.add('no');}else{d.onclick=()=>pick(i);}ops.appendChild(d);});document.getElementById('pvb').disabled=idx===0;document.getElementById('nxb').disabled=ans[idx]===null;if(ans[idx]!==null)ex.classList.add('show');}
-function pick(i){if(ans[idx]!==null)return;ans[idx]=i;if(i===drawn[idx].a)corr++;document.getElementById('sc').textContent=corr;render();const nb=document.getElementById('nxb');nb.disabled=false;if(idx===N-1){nb.textContent='See results';}}
+function shuffleArr(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
+function shuffleOpts(q){
+  // Build index array [0,1,2,3], shuffle it, remap correct answer index
+  const order=[0,1,2,3];
+  for(let i=3;i>0;i--){const j=Math.floor(Math.random()*(i+1));[order[i],order[j]]=[order[j],order[i]];}
+  const newOpts=order.map(i=>q.opts[i]);
+  const newA=order.indexOf(q.a);
+  return {d:q.d,q:q.q,opts:newOpts,a:newA,exp:q.exp};
+}
+function start(){
+  const shuffled=shuffleArr([...qs]);
+  drawn=shuffled.slice(0,N).map(q=>shuffleOpts(q));
+  idx=0;corr=0;ans=Array(N).fill(null);
+  document.getElementById('res').classList.remove('show');
+  document.getElementById('qc').style.display='';
+  document.getElementById('ft').style.display='';
+  document.getElementById('nxb').textContent='Next';
+  render();
+}
+function render(){
+  const q=drawn[idx];
+  document.getElementById('qn').textContent='Q '+(idx+1);
+  document.getElementById('pc').textContent=N;
+  document.getElementById('pf').style.width=((idx/N)*100)+'%';
+  document.getElementById('sc').textContent=corr;
+  const dp=document.getElementById('dp');
+  dp.textContent=q.d.charAt(0).toUpperCase()+q.d.slice(1);
+  dp.className='dp '+q.d;
+  document.getElementById('qx').textContent=q.q;
+  const ex=document.getElementById('ex');
+  ex.classList.remove('show');
+  document.getElementById('et').textContent=q.exp;
+  const ops=document.getElementById('ops');
+  ops.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');
+    d.className='op'+(ans[idx]!==null?' dis':'');
+    d.innerHTML='<span class="ol">'+String.fromCharCode(65+i)+'</span><span>'+o+'</span>';
+    if(ans[idx]!==null){
+      if(i===q.a)d.classList.add('ok');
+      else if(i===ans[idx])d.classList.add('no');
+    }else{
+      d.onclick=()=>pick(i);
+    }
+    ops.appendChild(d);
+  });
+  document.getElementById('pvb').disabled=idx===0;
+  document.getElementById('nxb').disabled=ans[idx]===null;
+  if(ans[idx]!==null)ex.classList.add('show');
+}
+function pick(i){
+  if(ans[idx]!==null)return;
+  ans[idx]=i;
+  if(i===drawn[idx].a)corr++;
+  document.getElementById('sc').textContent=corr;
+  render();
+  const nb=document.getElementById('nxb');
+  nb.disabled=false;
+  if(idx===N-1){nb.textContent='See results';}
+}
 function nxt(){if(idx===N-1){showRes();return;}idx++;render();}
 function prev(){if(idx>0){idx--;render();}}
-function showRes(){document.getElementById('qc').style.display='none';document.getElementById('ft').style.display='none';const r=document.getElementById('res');r.classList.add('show');const pct=Math.round(corr/N*100);document.getElementById('rp').textContent=pct+'%';document.getElementById('rc').textContent=corr;document.getElementById('rw').textContent=N-corr;document.getElementById('rtot').textContent=N;}
+function showRes(){
+  document.getElementById('qc').style.display='none';
+  document.getElementById('ft').style.display='none';
+  const r=document.getElementById('res');
+  r.classList.add('show');
+  const pct=Math.round(corr/N*100);
+  document.getElementById('rp').textContent=pct+'%';
+  document.getElementById('rc').textContent=corr;
+  document.getElementById('rw').textContent=N-corr;
+  document.getElementById('rtot').textContent=N;
+}
 function restart(){start();}
 </script>
 </body>
